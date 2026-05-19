@@ -61,6 +61,21 @@
         "padding-block-end": 8
       }
     },
+    "ask_me": {
+      "type": "ask-me",
+      "settings": {
+        "heading": "Ask me anything about cardiovascular health",
+        "placeholder_text": "How does blood flow support energy?",
+        "button_text": "GO",
+        "expert_image": "shopify://shop_images/ellipse-228-mobile-header-31301311.jpg",
+        "expert_title": "Approved by experts",
+        "expert_description": "Get answers backed by research from Humann's Chief Cardiologist.",
+        "color_scheme": "scheme-3",
+        "section_width": "page-width",
+        "padding-block-start": 8,
+        "padding-block-end": 16
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -335,6 +350,7 @@
   },
   "order": [
     "hero_carousel",
+    "ask_me",
     "hero_jVaWmY",
     "product_list_fa6P9H"
   ]
