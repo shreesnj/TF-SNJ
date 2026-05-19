@@ -902,6 +902,85 @@
         "padding-block-start": 80,
         "padding-block-end": 80
       }
+    },
+    "retailers": {
+      "type": "retailers",
+      "blocks": {
+        "logo_1": {
+          "type": "logo",
+          "settings": {
+            "icon": "gnc-2.svg",
+            "alt_text": "GNC"
+          }
+        },
+        "logo_2": {
+          "type": "logo",
+          "settings": {
+            "icon": "sprouts-2.svg",
+            "alt_text": "Sprouts Farmers Market"
+          }
+        },
+        "logo_3": {
+          "type": "logo",
+          "settings": {
+            "icon": "walmart-2.svg",
+            "alt_text": "Walmart"
+          }
+        },
+        "logo_4": {
+          "type": "logo",
+          "settings": {
+            "icon": "gnc-2.svg",
+            "alt_text": "GNC"
+          }
+        },
+        "logo_5": {
+          "type": "logo",
+          "settings": {
+            "icon": "target-2.svg",
+            "alt_text": "Target"
+          }
+        },
+        "logo_6": {
+          "type": "logo",
+          "settings": {
+            "icon": "sam-s-club-2.svg",
+            "alt_text": "Sam's Club"
+          }
+        },
+        "logo_7": {
+          "type": "logo",
+          "settings": {
+            "icon": "walmart-3.svg",
+            "alt_text": "Walmart"
+          }
+        },
+        "logo_8": {
+          "type": "logo",
+          "settings": {
+            "icon": "gnc-3.svg",
+            "alt_text": "GNC"
+          }
+        }
+      },
+      "block_order": [
+        "logo_1",
+        "logo_2",
+        "logo_3",
+        "logo_4",
+        "logo_5",
+        "logo_6",
+        "logo_7",
+        "logo_8"
+      ],
+      "settings": {
+        "heading": "<p>Trusted by leading retailers and available in more than 30,000 retail locations.</p>",
+        "button_text": "Find Retailer",
+        "color_scheme": "scheme-1",
+        "section_width": "full-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     }
   },
   "order": [
@@ -919,6 +998,7 @@
     "ingredients",
     "documentary",
     "community",
-    "deal"
+    "deal",
+    "retailers"
   ]
 }

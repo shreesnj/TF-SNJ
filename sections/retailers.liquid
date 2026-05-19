@@ -1,0 +1,237 @@
+{%- liquid
+  assign heading = section.settings.heading
+  assign button_text = section.settings.button_text
+  assign button_url = section.settings.button_url
+-%}
+
+<div
+  class="retailers color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="retailers__container">
+    {%- if heading != blank -%}
+      <div class="retailers__heading">{{ heading }}</div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="retailers__logos">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.icon != blank -%}
+            <div class="retailers__logo" {{ block.shopify_attributes }}>
+              <img
+                src="{{ block.settings.icon | asset_url }}"
+                alt="{{ block.settings.alt_text | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if button_text != blank -%}
+      <div class="retailers__cta">
+        <a
+          {%- if button_url != blank %} href="{{ button_url }}"{% endif %}
+          class="retailers__button"
+        >
+          {{ button_text }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.retailers__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.retailers__heading {
+  font-family: var(--font-heading--family);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  color: #767676;
+}
+
+.retailers__heading p {
+  margin: 0;
+}
+
+.retailers__logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  overflow: hidden;
+  padding: 24px 0;
+  width: 100%;
+}
+
+.retailers__logo {
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.retailers__logo img {
+  display: block;
+}
+
+.retailers__cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.retailers__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background-color: #000000;
+  color: #FFFFFF;
+  border-radius: 28px;
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.retailers__button:hover {
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 989px) {
+  .retailers__container {
+    padding-inline: 24px;
+  }
+
+  .retailers__heading {
+    font-size: 24px;
+    line-height: 32px;
+    text-align: left;
+  }
+
+  .retailers__logos {
+    gap: 32px;
+    padding: 24px 0;
+  }
+
+  .retailers__button {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.retailers",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Trusted by leading retailers and available in more than 30,000 retail locations.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Find Retailer"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "SVG filename",
+          "info": "Filename of the SVG in the assets folder (e.g. gnc-2.svg)"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.retailers"
+    }
+  ]
+}
+{% endschema %}
