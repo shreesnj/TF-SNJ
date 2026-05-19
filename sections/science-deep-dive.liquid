@@ -19,7 +19,7 @@
       {%- endif -%}
 
       {%- if subtitle != blank -%}
-        <p class="science-deep-dive__subtitle">{{ subtitle | escape }}</p>
+        <div class="science-deep-dive__subtitle">{{ subtitle }}</div>
       {%- endif -%}
     </div>
 
@@ -135,6 +135,10 @@
   font-size: 20px;
   line-height: 24px;
   color: #FFFFFF;
+  margin: 0;
+}
+
+.science-deep-dive__subtitle p {
   margin: 0;
 }
 
@@ -318,10 +322,10 @@
       "default": "<p>Learn about the <em>Miracle Molecule</em></p>"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "Science grounded in the Nobel Prize-winning nitric oxide pathway."
+      "default": "<p><strong>Did you know</strong> that Nitric Oxide is one of the most important molecules produced in your body?</p>"
     },
     {
       "type": "text",

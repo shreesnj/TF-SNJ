@@ -673,7 +673,7 @@
       ],
       "settings": {
         "heading": "<p>Learn about the <em>Miracle Molecule</em></p>",
-        "subtitle": "Science grounded in the Nobel Prize-winning nitric oxide pathway.",
+        "subtitle": "<p><strong>Did you know<\/strong> that Nitric Oxide is one of the most important molecules produced in your body?<\/p>",
         "button_text": "Explore Our Science",
         "show_dividers": true,
         "color_scheme": "scheme-3",
