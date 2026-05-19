@@ -49,6 +49,15 @@
   {% endif %}
   {{- block.shopify_attributes -}}
 >
+  {% if section.settings.custom_utility_link_text != blank and section.settings.custom_utility_link_url != blank %}
+    <a
+      href="{{ section.settings.custom_utility_link_url }}"
+      class="header-actions__action header-actions__text-style mobile:hidden"
+    >
+      {{ section.settings.custom_utility_link_text }}
+    </a>
+  {% endif %}
+
   {% if shop.customer_accounts_enabled %}
     {% liquid
       assign account_actions_style = ''

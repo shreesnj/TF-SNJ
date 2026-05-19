@@ -153,7 +153,7 @@
   "content": {
     "cancel": "Cancel",
     "discount": "Discount",
-    "account_title": "Account",
+    "account_title": "Login",
     "terms_and_policies": "Terms and Policies",
     "account_title_personalized": "Hi {{ first_name }}",
     "account_orders": "Orders",
