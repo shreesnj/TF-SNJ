@@ -516,107 +516,107 @@
         "padding-block-end": 80
       }
     },
-    “expert_endorsement”: {
-      “type”: “expert-endorsement”,
-      “blocks”: {
-        “card_1”: {
-          “type”: “card”,
-          “settings”: {
-            “image”: “shopify://shop_images/ellipse-228-mobile-header-31301311.jpg”,
-            “quote”: “”No other brand would dare call a cardiologist. Humann did.””,
-            “name”: “Dr. Christopher Davis, MD”,
-            “credentials”: “Chief Cardiologist at Humann, Triple Board-Certified Interventional Cardiologist, Fellow of the American College of Cardiology”
+    "expert_endorsement": {
+      "type": "expert-endorsement",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ellipse-228-mobile-header-31301311.jpg",
+            "quote": "\u201cNo other brand would dare call a cardiologist. Humann did.\u201d",
+            "name": "Dr. Christopher Davis, MD",
+            "credentials": "Chief Cardiologist at Humann, Triple Board-Certified Interventional Cardiologist, Fellow of the American College of Cardiology"
           }
         },
-        “card_2”: {
-          “type”: “card”,
-          “settings”: {
-            “image”: “shopify://shop_images/594d441eba314bf68cd58dc1b777afca-hd-1080p-2-5mbps-23552982-13-desktop-31731836.jpg”,
-            “quote”: “”Humann makes the science feel accessible and actionable.””,
-            “name”: “Yousef Elyaman, MD”,
-            “credentials”: “Medical Director at Humann, Board Certified in Internal Medicine and Integrative Medicine from the American Board of Physician Specialties”
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/594d441eba314bf68cd58dc1b777afca-hd-1080p-2-5mbps-23552982-13-desktop-31731836.jpg",
+            "quote": "\u201cHumann makes the science feel accessible and actionable.\u201d",
+            "name": "Yousef Elyaman, MD",
+            "credentials": "Medical Director at Humann, Board Certified in Internal Medicine and Integrative Medicine from the American Board of Physician Specialties"
           }
         },
-        “card_3”: {
-          “type”: “card”,
-          “settings”: {
-            “image”: “shopify://shop_images/img-desktop-31731847.png”,
-            “quote”: “”It’s refreshing to see a company take science seriously.””,
-            “name”: “Penny Kris-Etherton, PhD”,
-            “credentials”: “Science Advisory Board Member at Humann, past chair of the American Heart Association Council on Lifestyle and Cardiometabolic”
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/img-desktop-31731847.png",
+            "quote": "\u201cIt\u2019s refreshing to see a company take science seriously.\u201d",
+            "name": "Penny Kris-Etherton, PhD",
+            "credentials": "Science Advisory Board Member at Humann, past chair of the American Heart Association Council on Lifestyle and Cardiometabolic"
           }
         }
       },
-      “block_order”: [
-        “card_1”,
-        “card_2”,
-        “card_3”
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
       ],
-      “settings”: {
-        “heading”: “<p>Backed by <strong>6000+<\/strong> cardiologists and scientists<\/p>”,
-        “subtitle”: “Founded on Nobel Prize-Winning Science. Validated in Real Life.”,
-        “name_color”: “#BC0F0F”,
-        “show_dividers”: true,
-        “color_scheme”: “scheme-2”,
-        “section_width”: “page-width”,
-        “padding-block-start”: 80,
-        “padding-block-end”: 80
+      "settings": {
+        "heading": "<p>Backed by <strong>6000+<\/strong> cardiologists and scientists<\/p>",
+        "subtitle": "Founded on Nobel Prize-Winning Science. Validated in Real Life.",
+        "name_color": "#BC0F0F",
+        "show_dividers": true,
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
       }
     },
-    “science_deep_dive”: {
-      “type”: “science-deep-dive”,
-      “blocks”: {
-        “card_1”: {
-          “type”: “card”,
-          “settings”: {
-            “image”: “shopify://shop_images/1-mobile-31613935.jpg”,
-            “illustration”: “science-illustration-1.svg”,
-            “card_text”: “<p>By age 40, Humans naturally produce <strong>50% less Nitric Oxide</strong> than they did at age 20.</p>”
+    "science_deep_dive": {
+      "type": "science-deep-dive",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1-mobile-31613935.jpg",
+            "illustration": "science-illustration-1.svg",
+            "card_text": "<p>By age 40, Humans naturally produce <strong>50% less Nitric Oxide</strong> than they did at age 20.</p>"
           }
         },
-        “card_2”: {
-          “type”: “card”,
-          “settings”: {
-            “image”: “shopify://shop_images/2-mobile-31613943.jpg”,
-            “illustration”: “science-illustration-2.svg”,
-            “card_text”: “<p>Nitric Oxide helps circulate more oxygen and nutrients to your <strong>36 trillion cells.</strong></p>”
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/2-mobile-31613943.jpg",
+            "illustration": "science-illustration-2.svg",
+            "card_text": "<p>Nitric Oxide helps circulate more oxygen and nutrients to your <strong>36 trillion cells.</strong></p>"
           }
         },
-        “card_3”: {
-          “type”: “card”,
-          “settings”: {
-            “image”: “shopify://shop_images/3-mobile-31613972.jpg”,
-            “illustration”: “science-illustration-3.svg”,
-            “card_text”: “<p>More oxygen and nutrients means <strong>more healthy energy support.</strong></p>”
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/3-mobile-31613972.jpg",
+            "illustration": "science-illustration-3.svg",
+            "card_text": "<p>More oxygen and nutrients means <strong>more healthy energy support.</strong></p>"
           }
         }
       },
-      “block_order”: [
-        “card_1”,
-        “card_2”,
-        “card_3”
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
       ],
-      “settings”: {
-        “heading”: “<p>Learn about the <em>Miracle Molecule</em></p>”,
-        “subtitle”: “Science grounded in the Nobel Prize-winning nitric oxide pathway.”,
-        “button_text”: “Explore Our Science”,
-        “show_dividers”: true,
-        “color_scheme”: “scheme-3”,
-        “section_width”: “page-width”,
-        “padding-block-start”: 80,
-        “padding-block-end”: 80
+      "settings": {
+        "heading": "<p>Learn about the <em>Miracle Molecule</em></p>",
+        "subtitle": "Science grounded in the Nobel Prize-winning nitric oxide pathway.",
+        "button_text": "Explore Our Science",
+        "show_dividers": true,
+        "color_scheme": "scheme-3",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
       }
     }
   },
-  “order”: [
-    “hero_carousel”,
-    “ask_me”,
-    “hero_jVaWmY”,
-    “product_list_fa6P9H”,
-    “social_proof_reviews”,
-    “brand_science”,
-    “science_deep_dive”,
-    “routine_impact”,
-    “expert_endorsement”
+  "order": [
+    "hero_carousel",
+    "ask_me",
+    "hero_jVaWmY",
+    "product_list_fa6P9H",
+    "social_proof_reviews",
+    "brand_science",
+    "science_deep_dive",
+    "routine_impact",
+    "expert_endorsement"
   ]
 }
