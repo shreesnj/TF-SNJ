@@ -46,8 +46,6 @@
         </div>
       {%- endif -%}
 
-      <hr class="routine-impact__divider">
-
       {%- if stat_text != blank -%}
         <div class="routine-impact__stat-row">
           <span class="routine-impact__dot" style="background-color: {{ dot_color }};"></span>
@@ -151,13 +149,6 @@
 .routine-impact__heading strong,
 .routine-impact__heading b {
   font-weight: 700;
-}
-
-.routine-impact__divider {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  margin: 0;
-  width: 100%;
 }
 
 .routine-impact__stat-row {
@@ -268,8 +259,6 @@
   line-height: 20px;
   letter-spacing: -0.5px;
   color: #FFFFFF;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  padding-top: 8px;
 }
 
 /* Desktop styles */
