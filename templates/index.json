@@ -9,6 +9,58 @@
  */
  {
   "sections": {
+    "hero_carousel": {
+      "type": "hero-carousel",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "layout": "two_column",
+            "background_type": "gradient",
+            "gradient_color_start": "#F0F0F0",
+            "gradient_color_end": "#E3E3E3",
+            "gradient_angle": 170,
+            "slide_corner_radius": 16,
+            "title": "SuperBeets®, The Cardiovascular  Health Original",
+            "title_color": "#BC0F0F",
+            "subtitle": "Combines category-leading trust with clinically researched cardiovascular support.",
+            "subtitle_color": "#BC0F0F",
+            "button_label": "SHOP SUPERBEETS",
+            "button_bg_color": "#000000",
+            "button_text_color": "#FFFFFF",
+            "content_image": "shopify://shop_images/hero-mobile-header-31301281.png",
+            "footer_image": "shopify://shop_images/screenshot-2026-04-07-at-11-03-03-1-mobile-header-31301290.png"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "layout": "overlay",
+            "background_type": "image",
+            "background_image": "shopify://shop_images/hero-mobile-header-I31301882211761.png",
+            "blur_background": true,
+            "slide_corner_radius": 12,
+            "title": "Cardiovascular health is everything health.",
+            "title_color": "#414141",
+            "subtitle": "Inspired by Nobel-Prize winning science, born out of research from The University of Texas.",
+            "subtitle_color": "#FFFFFF",
+            "button_label": "EXPLORE THE SCIENCE",
+            "button_bg_color": "#000000",
+            "button_text_color": "#FFFFFF"
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ],
+      "settings": {
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "padding-block-start": 8,
+        "padding-block-end": 8
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -282,6 +334,7 @@
     }
   },
   "order": [
+    "hero_carousel",
     "hero_jVaWmY",
     "product_list_fa6P9H"
   ]

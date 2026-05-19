@@ -435,7 +435,9 @@
     "video_section": "Video",
     "view_all_button": "View all",
     "pills": "Pills",
-    "comparison_slider": "Comparison slider"
+    "comparison_slider": "Comparison slider",
+    "hero_carousel": "Hero carousel",
+    "hero_carousel_slide": "Slide"
   },
   "options": {
     "above_carousel": "Above carousel",
@@ -747,7 +749,10 @@
     "wide": "Wide",
     "youtube": "YouTube",
     "with_hints": "With hints",
-    "below_media": "Below media"
+    "below_media": "Below media",
+    "two_column": "Two column",
+    "overlay": "Overlay",
+    "gradient": "Gradient"
   },
   "settings": {
     "accordion": "Accordion",
@@ -1178,7 +1183,23 @@
     "text_on_images": "Text on images",
     "x_position": "Horizontal position",
     "y_position": "Vertical position",
-    "cta_text": "CTA text"
+    "cta_text": "CTA text",
+    "background_type": "Background type",
+    "gradient_color_start": "Gradient start",
+    "gradient_color_end": "Gradient end",
+    "gradient_angle": "Gradient angle",
+    "blur_background": "Blur background",
+    "slide_corner_radius": "Corner radius",
+    "title_color": "Title color",
+    "subtitle": "Subtitle",
+    "subtitle_color": "Subtitle color",
+    "button_label": "Button label",
+    "button_url": "Button URL",
+    "button_bg_color": "Button background",
+    "button_text_color": "Button text color",
+    "footer_image": "Footer image",
+    "content_image": "Content image",
+    "autoplay_speed": "Autoplay speed"
   },
   "text_defaults": {
     "accordion_heading": "Accordion heading",
