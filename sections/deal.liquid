@@ -1,0 +1,433 @@
+{%- liquid
+  assign image = section.settings.image
+  assign badge_text = section.settings.badge_text
+  assign heading = section.settings.heading
+  assign subtitle = section.settings.subtitle
+  assign price_label = section.settings.price_label
+  assign original_price = section.settings.original_price
+  assign sale_price = section.settings.sale_price
+  assign button_text = section.settings.button_text
+  assign button_url = section.settings.button_url
+  assign disclaimer_text = section.settings.disclaimer_text
+  assign container_background = section.settings.container_background
+-%}
+
+<div
+  class="deal color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="deal__container" style="background-color: {{ container_background }};">
+    {%- if image != blank -%}
+      <div class="deal__media">
+        {{ image | image_url: width: image.width | image_tag:
+          sizes: '(min-width: 990px) 600px, 100vw',
+          widths: '375,550,600,750,1100',
+          loading: 'lazy',
+          class: 'deal__image',
+          alt: image.alt | default: ''
+        }}
+      </div>
+    {%- endif -%}
+
+    <div class="deal__content">
+      {%- if badge_text != blank -%}
+        <div class="deal__badge">
+          <span class="deal__badge-text">{{ badge_text }}</span>
+        </div>
+      {%- endif -%}
+
+      <div class="deal__center">
+        {%- if heading != blank -%}
+          <div class="deal__heading">{{ heading }}</div>
+        {%- endif -%}
+
+        {%- if subtitle != blank -%}
+          <p class="deal__subtitle">{{ subtitle }}</p>
+        {%- endif -%}
+
+        <div class="deal__price">
+          <div class="deal__price-set">
+            {%- if price_label != blank -%}
+              <span class="deal__price-label">{{ price_label }}</span>
+            {%- endif -%}
+            {%- if original_price != blank -%}
+              <span class="deal__price-original">{{ original_price }}</span>
+            {%- endif -%}
+            {%- if sale_price != blank -%}
+              <span class="deal__price-sale">{{ sale_price }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if button_text != blank -%}
+          <div class="deal__btn">
+            <a
+              {%- if button_url != blank %} href="{{ button_url }}"{% endif %}
+              class="deal__button"
+            >
+              {{ button_text }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if disclaimer_text != blank -%}
+        <p class="deal__disclaimer">{{ disclaimer_text }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.deal__container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.deal__media {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.deal__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.deal__content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.deal__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background-color: #000000;
+  border-radius: 8px;
+}
+
+.deal__badge-text {
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.deal__center {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.deal__heading {
+  font-family: var(--font-heading--family);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 52px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.deal__heading p {
+  margin: 0;
+}
+
+.deal__subtitle {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.deal__price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deal__price-set {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.deal__price-label {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #F5F5F5;
+}
+
+.deal__price-original {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: #F5F5F5;
+  text-decoration: line-through;
+}
+
+.deal__price-sale {
+  font-family: var(--font-body--family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #FFFFFF;
+}
+
+.deal__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.deal__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 28px;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-radius: 28px;
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.deal__button:hover {
+  opacity: 0.9;
+}
+
+.deal__disclaimer {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #F5F5F5;
+  margin: 0;
+}
+
+@media screen and (max-width: 989px) {
+  .deal__container {
+    flex-direction: column;
+  }
+
+  .deal__media {
+    width: 100%;
+  }
+
+  .deal__content {
+    width: 100%;
+    padding: 24px;
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .deal__badge-text {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .deal__center {
+    gap: 16px;
+  }
+
+  .deal__heading {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .deal__subtitle {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .deal__price-label {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .deal__price-original {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .deal__price-sale {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .deal__btn {
+    padding: 0;
+  }
+
+  .deal__button {
+    padding: 12px 20px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .deal__disclaimer {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.deal",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "BUY 4, Get 2 FREE"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p><strong>A Better Deal on Your SuperBeets® Routine</strong></p>"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Stock up on SuperBeets® Heart Chews – your daily cardiovascular support."
+    },
+    {
+      "type": "text",
+      "id": "price_label",
+      "label": "Price label",
+      "default": "Total Price:"
+    },
+    {
+      "type": "text",
+      "id": "original_price",
+      "label": "Original price",
+      "default": "$239.00"
+    },
+    {
+      "type": "text",
+      "id": "sale_price",
+      "label": "Sale price",
+      "default": "$159.00"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Get the Deal"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer_text",
+      "label": "Disclaimer text",
+      "default": "*Terms & Conditions apply **Limited offer"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "container_background",
+      "label": "Container background",
+      "default": "#BC0F0F"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.deal"
+    }
+  ]
+}
+{% endschema %}

@@ -883,6 +883,25 @@
         "padding-block-start": 80,
         "padding-block-end": 80
       }
+    },
+    "deal": {
+      "type": "deal",
+      "settings": {
+        "image": "shopify://shop_images/sbhczs-omi-1-10-mobile-31614256.png",
+        "badge_text": "BUY 4, Get 2 FREE",
+        "heading": "<p><strong>A Better Deal on Your SuperBeets® Routine</strong></p>",
+        "subtitle": "Stock up on SuperBeets® Heart Chews – your daily cardiovascular support.",
+        "price_label": "Total Price:",
+        "original_price": "$239.00",
+        "sale_price": "$159.00",
+        "button_text": "Get the Deal",
+        "disclaimer_text": "*Terms & Conditions apply **Limited offer",
+        "container_background": "#BC0F0F",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     }
   },
   "order": [
@@ -899,6 +918,7 @@
     "expert_endorsement",
     "ingredients",
     "documentary",
-    "community"
+    "community",
+    "deal"
   ]
 }
