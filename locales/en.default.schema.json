@@ -1174,7 +1174,8 @@
     "cs_slider_inner_color": "Slider inner color",
     "text_on_images": "Text on images",
     "x_position": "Horizontal position",
-    "y_position": "Vertical position"
+    "y_position": "Vertical position",
+    "cta_text": "CTA text"
   },
   "text_defaults": {
     "accordion_heading": "Accordion heading",

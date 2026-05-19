@@ -119,6 +119,21 @@
     position: absolute;
     inset: 0;
   }
+
+  @media screen and (max-width: 39.99em) {
+    .announcement-bar {
+      --color-background: rgb(118, 118, 118);
+      --padding-block-start: 8px;
+      --padding-block-end: 8px;
+      padding-inline: 16px;
+      overflow: hidden;
+    }
+
+    .announcement-bar__slide {
+      --font-size: 0.875rem;
+      --line-height: 1.286;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
