@@ -439,7 +439,9 @@
     "pills": "Pills",
     "comparison_slider": "Comparison slider",
     "hero_carousel": "Hero carousel",
-    "hero_carousel_slide": "Slide"
+    "hero_carousel_slide": "Slide",
+    "brand_science": "Brand Science",
+    "brand_science_card": "Card"
   },
   "options": {
     "above_carousel": "Above carousel",

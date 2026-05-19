@@ -1,0 +1,597 @@
+{%- liquid
+  assign heading = section.settings.heading
+  assign subtitle = section.settings.subtitle
+  assign subtitle_bold = section.settings.subtitle_bold
+  assign show_divider = section.settings.show_divider
+-%}
+
+<div
+  class="brand-science color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="brand-science__wrapper {% if section.settings.section_width == 'page-width' %}page-width{% endif %}">
+    <div class="brand-science__header">
+      {%- if heading != blank -%}
+        <div class="brand-science__heading">
+          {{ heading }}
+        </div>
+      {%- endif -%}
+
+      {%- if subtitle != blank -%}
+        <p class="brand-science__subtitle">{{ subtitle | escape }}</p>
+      {%- endif -%}
+
+      {%- if show_divider -%}
+        <hr class="brand-science__divider">
+      {%- endif -%}
+
+      {%- if subtitle_bold != blank -%}
+        <p class="brand-science__subtitle-bold">{{ subtitle_bold | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="brand-science__cards">
+      {%- for block in section.blocks -%}
+        <div
+          class="brand-science__card{% if forloop.first %} is-expanded{% endif %}"
+          style="--card-bg: {{ block.settings.card_color }};"
+          {{ block.shopify_attributes }}
+        >
+          <div class="brand-science__card-header" data-card-index="{{ forloop.index0 }}">
+            <div class="brand-science__card-badge">
+              <span class="brand-science__card-badge-number">{{ block.settings.number | escape }}</span>
+            </div>
+            <span class="brand-science__card-title">{{ block.settings.title | escape }}</span>
+          </div>
+
+          <div class="brand-science__card-body">
+            {%- if block.settings.intro_text != blank -%}
+              <p class="brand-science__card-intro">{{ block.settings.intro_text | escape }}</p>
+            {%- endif -%}
+
+            <div class="brand-science__card-stat">
+              <div class="brand-science__card-stat-text">
+                <span class="brand-science__card-stat-value">{{ block.settings.stat_value | escape }}</span>
+                {%- if block.settings.stat_description != blank -%}
+                  <p class="brand-science__card-stat-desc">{{ block.settings.stat_description | escape }}</p>
+                {%- endif -%}
+              </div>
+              {%- if block.settings.icon != blank -%}
+                <div class="brand-science__card-stat-icon">
+                  <img
+                    src="{{ block.settings.icon | asset_url }}"
+                    alt=""
+                    width="48"
+                    height="44"
+                    loading="lazy"
+                  >
+                </div>
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.button_text != blank -%}
+              <a
+                class="brand-science__card-cta"
+                {%- if block.settings.button_url != blank %}
+                  href="{{ block.settings.button_url }}"
+                {%- endif %}
+              >
+                {{ block.settings.button_text | escape }}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var sectionId = '{{ section.id }}';
+    var section = document.getElementById('shopify-section-' + sectionId);
+    if (!section) return;
+
+    var mql = window.matchMedia('(max-width: 989px)');
+    var cards = section.querySelectorAll('.brand-science__card');
+
+    function handleHeaderClick(e) {
+      if (!mql.matches) return;
+      var header = e.currentTarget;
+      var card = header.closest('.brand-science__card');
+      if (!card) return;
+
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.remove('is-expanded');
+      }
+      card.classList.add('is-expanded');
+    }
+
+    var headers = section.querySelectorAll('.brand-science__card-header');
+    for (var j = 0; j < headers.length; j++) {
+      headers[j].addEventListener('click', handleHeaderClick);
+    }
+  })();
+</script>
+
+{% stylesheet %}
+.brand-science {
+  padding-block-start: var(--padding-block-start);
+  padding-block-end: var(--padding-block-end);
+}
+
+.brand-science__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand-science__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.brand-science__heading {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 52px;
+  letter-spacing: -1px;
+  color: #767676;
+}
+
+.brand-science__heading p {
+  margin: 0;
+}
+
+.brand-science__heading strong,
+.brand-science__heading b {
+  font-family: var(--font-body--family);
+  font-weight: 700;
+  color: #767676;
+}
+
+.brand-science__subtitle {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #767676;
+  margin: 0;
+}
+
+.brand-science__divider {
+  border: none;
+  border-top: 1px solid #D0D0D0;
+  margin: 0;
+}
+
+.brand-science__subtitle-bold {
+  font-family: var(--font-body--family);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #767676;
+  margin: 0;
+}
+
+.brand-science__cards {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding-block: 16px;
+}
+
+.brand-science__card {
+  flex: 1;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 32px;
+}
+
+.brand-science__card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-science__card-badge {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 20px;
+  border: 1px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-science__card-badge-number {
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.brand-science__card-title {
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.brand-science__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.brand-science__card-intro {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -1px;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0 8px;
+}
+
+.brand-science__card-stat {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.brand-science__card-stat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.brand-science__card-stat-value {
+  font-family: var(--font-body--family);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 52px;
+  color: #FFFFFF;
+}
+
+.brand-science__card-stat-desc {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.brand-science__card-stat-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-science__card-stat-icon img {
+  width: 48px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.brand-science__card-cta {
+  display: block;
+  text-align: center;
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+  border: 1px solid #FFFFFF;
+  border-radius: 28px;
+  padding: 8px 16px;
+  background: transparent;
+}
+
+.brand-science__card-cta:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Mobile styles */
+@media screen and (max-width: 989px) {
+  .brand-science {
+    background-color: #F5F5F5;
+  }
+
+  .brand-science__wrapper {
+    gap: 20px;
+    padding-inline: 12px;
+  }
+
+  .brand-science__heading {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .brand-science__subtitle {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .brand-science__subtitle-bold {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .brand-science__cards {
+    flex-direction: column;
+    gap: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    padding-block: 0;
+  }
+
+  .brand-science__card {
+    border-radius: 16px 16px 0 0;
+    padding: 20px 16px;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .brand-science__card:not(:first-child) {
+    margin-top: -24px;
+  }
+
+  .brand-science__card:nth-child(1) {
+    z-index: 1;
+  }
+
+  .brand-science__card:nth-child(2) {
+    z-index: 2;
+  }
+
+  .brand-science__card:nth-child(3) {
+    z-index: 3;
+  }
+
+  .brand-science__card-header {
+    cursor: pointer;
+  }
+
+  .brand-science__card:not(.is-expanded) .brand-science__card-body {
+    display: none;
+  }
+
+  .brand-science__card.is-expanded {
+    padding: 20px 16px 40px 16px;
+  }
+
+  .brand-science__card:not(.is-expanded) {
+    padding: 20px 16px 48px 16px;
+  }
+
+  .brand-science__card-badge-number {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .brand-science__card-title {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .brand-science__card-intro {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .brand-science__card-stat-value {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .brand-science__card-stat-desc {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .brand-science__card-cta {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.brand_science",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>There's nothing more <strong>fundamental to longevity</strong> than Cardiovascular Health.</p>"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Powered through nitric oxide and  better blood flow."
+    },
+    {
+      "type": "text",
+      "id": "subtitle_bold",
+      "label": "Bold subtitle",
+      "default": "The 3 Keys to Cardiovascular Health"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show divider",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "t:names.brand_science_card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Card header"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Blood Pressure"
+        },
+        {
+          "type": "header",
+          "content": "Card body"
+        },
+        {
+          "type": "textarea",
+          "id": "intro_text",
+          "label": "Intro text",
+          "default": "Healthy blood pressure starts with blood flow, and blood flow starts with nitric oxide."
+        },
+        {
+          "type": "text",
+          "id": "stat_value",
+          "label": "Stat value",
+          "default": "2x"
+        },
+        {
+          "type": "textarea",
+          "id": "stat_description",
+          "label": "Stat description",
+          "default": "more effective blood pressure support when compared to diet and exercise alone."
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "64px.svg", "label": "Heart" },
+            { "value": "icon.svg", "label": "Energy" },
+            { "value": "icon-2.svg", "label": "Lightning" },
+            { "value": "icon-3.svg", "label": "Shield" }
+          ],
+          "default": "64px.svg"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Shop Blood Pressure"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button link"
+        },
+        {
+          "type": "header",
+          "content": "Appearance"
+        },
+        {
+          "type": "color",
+          "id": "card_color",
+          "label": "Card color",
+          "default": "#8C0132"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.brand_science"
+    }
+  ]
+}
+{% endschema %}

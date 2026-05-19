@@ -409,6 +409,64 @@
         "padding-block-start": 80,
         "padding-block-end": 80
       }
+    },
+    "brand_science": {
+      "type": "brand-science",
+      "settings": {
+        "heading": "<p>There's nothing more <strong>fundamental to longevity<\/strong> than Cardiovascular Health.<\/p>",
+        "subtitle": "Powered through nitric oxide and  better blood flow.",
+        "subtitle_bold": "The 3 Keys to Cardiovascular Health",
+        "show_divider": true,
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      },
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "number": "1",
+            "title": "Blood Pressure",
+            "intro_text": "Healthy blood pressure starts with blood flow, and blood flow starts with nitric oxide.",
+            "stat_value": "2x",
+            "stat_description": "more effective blood pressure support when compared to diet and exercise alone.¹",
+            "icon": "64px.svg",
+            "button_text": "Shop Blood Pressure",
+            "card_color": "#8C0132"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "number": "2",
+            "title": "Metabolic",
+            "intro_text": "Help your body use energy more smoothly and steadily.",
+            "stat_value": "78%",
+            "stat_description": "of customers report improved energy levels, after completing their first 90-day routine.",
+            "icon": "icon.svg",
+            "button_text": "Shop Metabolic",
+            "card_color": "#E6305E"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "number": "3",
+            "title": "Cholesterol",
+            "intro_text": "Help your body keep cholesterol levels in a healthy range.",
+            "stat_value": "29%",
+            "stat_description": "reduction in LDL (bad cholesterol) and a 11% reduction in total cholesterol.",
+            "icon": "icon-3.svg",
+            "button_text": "Shop Cholesterol",
+            "card_color": "#D54427"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ]
     }
   },
   "order": [
@@ -416,6 +474,7 @@
     "ask_me",
     "hero_jVaWmY",
     "product_list_fa6P9H",
-    "social_proof_reviews"
+    "social_proof_reviews",
+    "brand_science"
   ]
 }
