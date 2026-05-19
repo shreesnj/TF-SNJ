@@ -467,6 +467,54 @@
         "card_2",
         "card_3"
       ]
+    },
+    "routine_impact": {
+      "type": "routine-impact",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "label": "30 DAYS",
+            "description": "<p>You start building consistency as your routine becomes a part of your <strong>daily cardiovascular support.</strong></p>",
+            "benefit_1": "Supports nitric oxide levels",
+            "benefit_2": "Promotes healthy blood flow"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "label": "60 DAYS",
+            "description": "<p>You feel the routine take hold as you continue <strong>supporting nitric oxide,</strong> blood flow, and overall cardiovascular health.</p>",
+            "benefit_1": "Enhanced daily energy",
+            "benefit_2": "Supports cardiovascular vitality"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "label": "90 DAYS",
+            "description": "<p>Support becomes part of <strong>your daily rhythm</strong>, with habits and benefits working together over time</p>",
+            "benefit_1": "Optimized blood pressure",
+            "benefit_2": "Long-term cardiovascular support"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/stat-mobile-31614101.jpg",
+        "mobile_image": "shopify://shop_images/stat-mobile-31614101.jpg",
+        "heading": "<p>One routine.<br><strong>Big impact.</strong></p>",
+        "stat_text": "35K daily active users",
+        "dot_color": "#BC0F0F",
+        "color_scheme": "scheme-5",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     }
   },
   "order": [
@@ -475,6 +523,7 @@
     "hero_jVaWmY",
     "product_list_fa6P9H",
     "social_proof_reviews",
-    "brand_science"
+    "brand_science",
+    "routine_impact"
   ]
 }

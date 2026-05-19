@@ -441,7 +441,9 @@
     "hero_carousel": "Hero carousel",
     "hero_carousel_slide": "Slide",
     "brand_science": "Brand Science",
-    "brand_science_card": "Card"
+    "brand_science_card": "Card",
+    "routine_impact": "Routine Impact",
+    "routine_impact_card": "Milestone card"
   },
   "options": {
     "above_carousel": "Above carousel",
