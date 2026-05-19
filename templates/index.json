@@ -685,6 +685,98 @@
         "padding-block-end": 80
       }
     },
+    "ingredients": {
+      "type": "ingredients",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614157.png",
+            "label": "Black Garlic"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614158.png",
+            "label": "Grape Seed Extract"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614159.jpg",
+            "label": "Beet Root"
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614160.png",
+            "label": "Berberine"
+          }
+        },
+        "card_5": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614162.png",
+            "label": "Olive Fruit Extract"
+          }
+        },
+        "card_6": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614161.png",
+            "label": "Japanese Seaweed"
+          }
+        },
+        "card_7": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-desktop-31732135.jpg",
+            "label": "French Cantaloupe"
+          }
+        },
+        "card_8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-desktop-31732133.jpg",
+            "label": "White Mulberry Leaf"
+          }
+        },
+        "card_9": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-desktop-31732134.jpg",
+            "label": "Coffee Fruit Extract"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_5",
+        "card_6",
+        "card_7",
+        "card_8",
+        "card_9"
+      ],
+      "settings": {
+        "heading": "<p>Made from clinically researched and <strong>sustainably sourced ingredients.<\/strong><\/p>",
+        "subtitle": "<p>Made in the USA with carefully sourced ingredients from around the world. From source to formula, each ingredient is chosen with purpose.<\/p>",
+        "link_text": "About ingredients.",
+        "button_text": "SHOW ALL INGREDIENTS",
+        "usa_bar_label": "MADE IN USA",
+        "usa_bar_subtitle": "with globally sourced ingredients",
+        "mobile_max_cards": 6,
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 96,
+        "padding-block-end": 96
+      }
+    },
     "science_deep_dive": {
       "type": "science-deep-dive",
       "blocks": {
@@ -741,6 +833,7 @@
     "brand_science",
     "science_deep_dive",
     "routine_impact",
-    "expert_endorsement"
+    "expert_endorsement",
+    "ingredients"
   ]
 }

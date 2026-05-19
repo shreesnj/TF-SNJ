@@ -448,7 +448,9 @@
     "expert_endorsement_card": "Expert card",
     "science_deep_dive": "Science Deep Dive",
     "science_deep_dive_card": "Card",
-    "bestsellers": "Bestsellers"
+    "bestsellers": "Bestsellers",
+    "ingredients": "Ingredients",
+    "ingredients_card": "Ingredient card"
   },
   "options": {
     "above_carousel": "Above carousel",
