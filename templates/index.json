@@ -515,6 +515,53 @@
         "padding-block-start": 80,
         "padding-block-end": 80
       }
+    },
+    "expert_endorsement": {
+      "type": "expert-endorsement",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ellipse-228-mobile-header-31301311.jpg",
+            "quote": "“No other brand would dare call a cardiologist. Humann did.”",
+            "name": "Dr. Christopher Davis, MD",
+            "credentials": "Chief Cardiologist at Humann, Triple Board-Certified Interventional Cardiologist, Fellow of the American College of Cardiology"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/594d441eba314bf68cd58dc1b777afca-hd-1080p-2-5mbps-23552982-13-desktop-31731836.jpg",
+            "quote": "“Humann makes the science feel accessible and actionable.”",
+            "name": "Yousef Elyaman, MD",
+            "credentials": "Medical Director at Humann, Board Certified in Internal Medicine and Integrative Medicine from the American Board of Physician Specialties"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/img-desktop-31731847.png",
+            "quote": "“It’s refreshing to see a company take science seriously.”",
+            "name": "Penny Kris-Etherton, PhD",
+            "credentials": "Science Advisory Board Member at Humann, past chair of the American Heart Association Council on Lifestyle and Cardiometabolic"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ],
+      "settings": {
+        "heading": "<p>Backed by <strong>6000+<\/strong> cardiologists and scientists<\/p>",
+        "subtitle": "Founded on Nobel Prize-Winning Science. Validated in Real Life.",
+        "name_color": "#BC0F0F",
+        "show_dividers": true,
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     }
   },
   "order": [
@@ -524,6 +571,7 @@
     "product_list_fa6P9H",
     "social_proof_reviews",
     "brand_science",
-    "routine_impact"
+    "routine_impact",
+    "expert_endorsement"
   ]
 }

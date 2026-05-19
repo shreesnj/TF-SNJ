@@ -443,7 +443,9 @@
     "brand_science": "Brand Science",
     "brand_science_card": "Card",
     "routine_impact": "Routine Impact",
-    "routine_impact_card": "Milestone card"
+    "routine_impact_card": "Milestone card",
+    "expert_endorsement": "Expert endorsement",
+    "expert_endorsement_card": "Expert card"
   },
   "options": {
     "above_carousel": "Above carousel",

@@ -1,0 +1,539 @@
+{%- liquid
+  assign heading = section.settings.heading
+  assign subtitle = section.settings.subtitle
+  assign show_dividers = section.settings.show_dividers
+-%}
+
+<div
+  class="expert-endorsement color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="expert-endorsement__wrapper {% if section.settings.section_width == 'page-width' %}page-width{% endif %}">
+    <div class="expert-endorsement__header">
+      {%- if heading != blank -%}
+        <div class="expert-endorsement__heading">
+          {{ heading }}
+        </div>
+      {%- endif -%}
+
+      {%- if subtitle != blank -%}
+        <p class="expert-endorsement__subtitle">{{ subtitle | escape }}</p>
+      {%- endif -%}
+
+      {%- if show_dividers -%}
+        <hr class="expert-endorsement__divider">
+      {%- endif -%}
+    </div>
+
+    <div class="expert-endorsement__grid">
+      {%- for block in section.blocks -%}
+        <div
+          class="expert-endorsement__card{% if forloop.first %} is-active{% endif %}"
+          data-card-index="{{ forloop.index0 }}"
+          {{ block.shopify_attributes }}
+        >
+          <div class="expert-endorsement__card-image-wrap">
+            {%- if block.settings.image != blank -%}
+              {%- liquid
+                assign img = block.settings.image
+                assign sizes_val = '(min-width: 990px) 384px, calc(100vw - 24px)'
+              -%}
+              {{
+                img
+                | image_url: width: img.width
+                | image_tag:
+                  sizes: sizes_val,
+                  widths: '375,384,550,750,768',
+                  loading: 'lazy',
+                  class: 'expert-endorsement__card-image',
+                  alt: img.alt
+              }}
+            {%- endif -%}
+
+            <button class="expert-endorsement__play-btn" type="button" aria-label="Play video">
+              <img
+                src="{{ 'frame-308.svg' | asset_url }}"
+                alt=""
+                width="20"
+                height="20"
+                loading="lazy"
+              >
+            </button>
+
+            <button class="expert-endorsement__mute-btn" type="button" aria-label="Mute">
+              <img
+                src="{{ 'volume-mute-solid.svg' | asset_url }}"
+                alt=""
+                width="24"
+                height="24"
+                loading="lazy"
+              >
+            </button>
+          </div>
+
+          <div class="expert-endorsement__card-quote">
+            {%- if block.settings.quote != blank -%}
+              <p class="expert-endorsement__quote-text">{{ block.settings.quote | escape }}</p>
+            {%- endif -%}
+          </div>
+
+          <div class="expert-endorsement__card-info" style="--name-color: {{ section.settings.name_color }};">
+            {%- if block.settings.name != blank -%}
+              <p class="expert-endorsement__name">{{ block.settings.name | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.credentials != blank -%}
+              <p class="expert-endorsement__credentials">{{ block.settings.credentials | escape }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="expert-endorsement__nav">
+      <div class="expert-endorsement__nav-buttons">
+        <button class="expert-endorsement__nav-btn expert-endorsement__nav-btn--prev" type="button" aria-label="Previous expert" disabled>
+          <img src="{{ 'icon-button.svg' | asset_url }}" alt="" width="44" height="32" loading="lazy">
+        </button>
+        <button class="expert-endorsement__nav-btn expert-endorsement__nav-btn--next" type="button" aria-label="Next expert">
+          <img src="{{ 'icon-button-2.svg' | asset_url }}" alt="" width="44" height="32" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    {%- if show_dividers -%}
+      <hr class="expert-endorsement__divider expert-endorsement__divider--bottom">
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    var sectionId = '{{ section.id }}';
+    var sectionEl = document.getElementById('shopify-section-' + sectionId);
+    if (!sectionEl) return;
+
+    var mql = window.matchMedia('(max-width: 989px)');
+    var cards = sectionEl.querySelectorAll('.expert-endorsement__card');
+    var prevBtn = sectionEl.querySelector('.expert-endorsement__nav-btn--prev');
+    var nextBtn = sectionEl.querySelector('.expert-endorsement__nav-btn--next');
+    var currentIndex = 0;
+    var totalCards = cards.length;
+
+    function updateCards() {
+      for (var i = 0; i < cards.length; i++) {
+        if (i === currentIndex) {
+          cards[i].classList.add('is-active');
+        } else {
+          cards[i].classList.remove('is-active');
+        }
+      }
+      if (prevBtn) prevBtn.disabled = currentIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentIndex >= totalCards - 1;
+    }
+
+    function showAllCards() {
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.add('is-active');
+      }
+    }
+
+    function handleResize() {
+      if (mql.matches) {
+        currentIndex = 0;
+        updateCards();
+      } else {
+        showAllCards();
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCards();
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        if (currentIndex < totalCards - 1) {
+          currentIndex++;
+          updateCards();
+        }
+      });
+    }
+
+    mql.addEventListener('change', handleResize);
+    handleResize();
+  })();
+</script>
+
+{% stylesheet %}
+.expert-endorsement {
+  padding-block-start: var(--padding-block-start);
+  padding-block-end: var(--padding-block-end);
+}
+
+.expert-endorsement__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expert-endorsement__header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+}
+
+.expert-endorsement__heading {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 52px;
+  letter-spacing: -1px;
+  color: #767676;
+}
+
+.expert-endorsement__heading p {
+  margin: 0;
+}
+
+.expert-endorsement__heading strong,
+.expert-endorsement__heading b {
+  font-family: var(--font-body--family);
+  font-weight: 700;
+  color: #767676;
+}
+
+.expert-endorsement__subtitle {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #767676;
+  margin: 0;
+}
+
+.expert-endorsement__divider {
+  border: none;
+  border-top: 1px solid #D0D0D0;
+  margin: 0;
+}
+
+.expert-endorsement__grid {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.expert-endorsement__card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.expert-endorsement__card-image-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 384 / 364;
+}
+
+.expert-endorsement__card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.expert-endorsement__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 35px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.expert-endorsement__play-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.expert-endorsement__mute-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: none;
+}
+
+.expert-endorsement__card-quote {
+  padding: 0 8px;
+}
+
+.expert-endorsement__quote-text {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -1px;
+  color: #414141;
+  margin: 0;
+}
+
+.expert-endorsement__card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.expert-endorsement__name {
+  font-family: var(--font-body--family);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--name-color, #BC0F0F);
+  margin: 0;
+}
+
+.expert-endorsement__credentials {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: #767676;
+  margin: 0;
+}
+
+.expert-endorsement__nav {
+  display: none;
+}
+
+.expert-endorsement__nav-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.expert-endorsement__nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expert-endorsement__nav-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.expert-endorsement__divider--bottom {
+  margin-block-start: 0;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 989px) {
+  .expert-endorsement__wrapper {
+    gap: 20px;
+    padding-inline: 12px;
+  }
+
+  .expert-endorsement__header {
+    gap: 20px;
+    text-align: left;
+  }
+
+  .expert-endorsement__heading {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .expert-endorsement__subtitle {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .expert-endorsement__grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .expert-endorsement__card {
+    display: none;
+  }
+
+  .expert-endorsement__card.is-active {
+    display: flex;
+  }
+
+  .expert-endorsement__mute-btn {
+    display: flex;
+  }
+
+  .expert-endorsement__quote-text {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .expert-endorsement__name {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .expert-endorsement__credentials {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .expert-endorsement__nav {
+    display: block;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.expert_endorsement",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Backed by <strong>6000+</strong> cardiologists and scientists</p>"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Founded on Nobel Prize-Winning Science. Validated in Real Life."
+    },
+    {
+      "type": "color",
+      "id": "name_color",
+      "label": "Name color",
+      "default": "#BC0F0F"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Show dividers",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "t:names.expert_endorsement_card",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL"
+        },
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "textarea",
+          "id": "credentials",
+          "label": "Credentials"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.expert_endorsement"
+    }
+  ]
+}
+{% endschema %}
