@@ -454,7 +454,9 @@
     "bestsellers": "Bestsellers",
     "ingredients": "Ingredients",
     "ingredients_card": "Ingredient card",
-    "documentary": "Documentary"
+    "documentary": "Documentary",
+    "community": "Community",
+    "community_card": "Community card"
   },
   "options": {
     "above_carousel": "Above carousel",

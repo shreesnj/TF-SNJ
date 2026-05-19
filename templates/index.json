@@ -833,6 +833,56 @@
         "padding-block-start": 80,
         "padding-block-end": 80
       }
+    },
+    "community": {
+      "type": "community",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614241.png",
+            "username": "@velmacan"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614234.png",
+            "username": "@reillytris"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614227.png",
+            "username": "@_cmfree"
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31614234.png",
+            "username": "@tha_one08"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
+      ],
+      "settings": {
+        "heading": "<p>The <strong>Humann community<\/strong>, in motion.<\/p>",
+        "subtitle": "More than a product. A community of people focused on feeling better.",
+        "show_divider": true,
+        "stat_number": "6.5K",
+        "stat_label": "Active monthly subscribers",
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     }
   },
   "order": [
@@ -848,6 +898,7 @@
     "routine_impact",
     "expert_endorsement",
     "ingredients",
-    "documentary"
+    "documentary",
+    "community"
   ]
 }
