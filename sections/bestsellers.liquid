@@ -1,0 +1,546 @@
+{%- liquid
+  assign heading = section.settings.heading
+  assign button_text = section.settings.button_text
+  assign button_url = section.settings.button_url
+-%}
+
+<div
+  class="bestsellers color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="bestsellers__wrapper {% if section.settings.section_width == 'page-width' %}page-width{% endif %}">
+    {%- if heading != blank -%}
+      <div class="bestsellers__header">
+        <div class="bestsellers__heading">
+          {{ heading }}
+        </div>
+        <hr class="bestsellers__divider">
+      </div>
+    {%- endif -%}
+
+    <div class="bestsellers__carousel">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign rating_value = block.settings.rating | plus: 0
+        -%}
+        <div class="bestsellers__card" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <div class="bestsellers__card-image-wrapper">
+              {%- liquid
+                assign img = block.settings.image
+                assign sizes_val = '(min-width: 990px) 340px, 280px'
+              -%}
+              {{
+                img
+                | image_url: width: img.width
+                | image_tag:
+                  sizes: sizes_val,
+                  widths: '280,340,420,560,680',
+                  loading: 'lazy',
+                  class: 'bestsellers__card-image',
+                  alt: img.alt
+              }}
+            </div>
+          {%- endif -%}
+
+          <div class="bestsellers__card-content">
+            {%- if block.settings.title != blank -%}
+              <h3 class="bestsellers__card-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+
+            <div class="bestsellers__card-meta">
+              <div class="bestsellers__card-reviews">
+                <span class="bestsellers__card-rating-number">{{ block.settings.rating | escape }}</span>
+                <span class="bestsellers__card-stars">
+                  {%- render 'star-rating-icons', rating: rating_value, color: '#BC0F0F', size: 20, half_variant: 'left' -%}
+                </span>
+                {%- if block.settings.review_count != blank -%}
+                  <span class="bestsellers__card-review-count">{{ block.settings.review_count | escape }}</span>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.badge_text != blank -%}
+                <span
+                  class="bestsellers__card-badge"
+                  style="--badge-bg: {{ block.settings.badge_color }}; --badge-text: {{ block.settings.badge_text_color }};"
+                >
+                  {{ block.settings.badge_text | escape }}
+                </span>
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.description != blank -%}
+              <p class="bestsellers__card-description">{{ block.settings.description | escape }}</p>
+            {%- endif -%}
+
+            <div class="bestsellers__card-cta-wrapper">
+              <a
+                class="bestsellers__card-cta"
+                {%- if block.settings.cta_url != blank %}
+                  href="{{ block.settings.cta_url }}"
+                {%- endif %}
+              >
+                {{ block.settings.cta_text | escape }}
+              </a>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if button_text != blank -%}
+      <hr class="bestsellers__divider">
+      <div class="bestsellers__btn">
+        <a
+          class="bestsellers__btn-link"
+          {%- if button_url != blank %}
+            href="{{ button_url }}"
+          {%- endif %}
+        >
+          {{ button_text | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.bestsellers {
+  padding-block-start: var(--padding-block-start);
+  padding-block-end: var(--padding-block-end);
+  background-color: #FFFFFF;
+}
+
+.bestsellers__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bestsellers__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bestsellers__heading {
+  font-family: var(--font-heading--family);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 52px;
+  color: #767676;
+}
+
+.bestsellers__heading p {
+  margin: 0;
+}
+
+.bestsellers__heading strong,
+.bestsellers__heading b {
+  font-weight: 700;
+}
+
+.bestsellers__divider {
+  border: none;
+  border-top: 1px solid #D0D0D0;
+  margin: 0;
+}
+
+.bestsellers__carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.bestsellers__card {
+  flex: 1;
+  min-width: 0;
+  background-color: #F5F5F5;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bestsellers__card:first-child {
+  border-radius: 18px;
+}
+
+.bestsellers__card-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.bestsellers__card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 340 / 258;
+  object-fit: cover;
+}
+
+.bestsellers__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.bestsellers__card-title {
+  font-family: var(--font-heading--family);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #414141;
+  margin: 0;
+}
+
+.bestsellers__card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-block: 8px;
+}
+
+.bestsellers__card-reviews {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+  padding-inline-end: 4px;
+}
+
+.bestsellers__card-rating-number {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: #BC0F0F;
+  margin-inline-end: 2px;
+}
+
+.bestsellers__card-stars {
+  display: flex;
+  align-items: center;
+}
+
+.bestsellers__card-review-count {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: #767676;
+  margin-inline-start: 2px;
+}
+
+.bestsellers__card-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 4px 12px;
+  background-color: var(--badge-bg, #F5F5F5);
+  color: var(--badge-text, #767676);
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.bestsellers__card-description {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: #767676;
+  margin: 0;
+}
+
+.bestsellers__card-cta-wrapper {
+  padding-block: 8px;
+}
+
+.bestsellers__card-cta {
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: #414141;
+}
+
+.bestsellers__btn {
+  display: flex;
+  align-items: center;
+  padding-block: 8px;
+}
+
+.bestsellers__btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000000;
+  border-radius: 28px;
+  padding: 12px 20px;
+  background: transparent;
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #000000;
+  text-decoration: none;
+  width: fit-content;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 749px) {
+  .bestsellers {
+    background-color: #F5F5F5;
+  }
+
+  .bestsellers__wrapper {
+    gap: 20px;
+  }
+
+  .bestsellers__heading {
+    font-size: 48px;
+    line-height: 36px;
+  }
+
+  .bestsellers__carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-inline: 8px;
+  }
+
+  .bestsellers__carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bestsellers__card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+  }
+
+  .bestsellers__card:first-child {
+    border-radius: 16px;
+  }
+
+  .bestsellers__card-image {
+    aspect-ratio: 280 / 188;
+  }
+
+  .bestsellers__card-content {
+    padding: 16px;
+  }
+
+  .bestsellers__card-title {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .bestsellers__card-rating-number {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .bestsellers__card-review-count {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .bestsellers__card-badge {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .bestsellers__card-description {
+    font-size: 16px;
+    line-height: 20px;
+    color: #414141;
+  }
+
+  .bestsellers__card-cta {
+    font-family: var(--font-body--family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .bestsellers__btn-link {
+    width: 100%;
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.bestsellers",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p><strong>Bestsellers</strong> for<br>cardiovascular support.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop All"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "t:names.card",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "rating",
+          "label": "Rating",
+          "default": "4.5"
+        },
+        {
+          "type": "text",
+          "id": "review_count",
+          "label": "Review count",
+          "default": "(1,000)"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "CTA link"
+        },
+        {
+          "type": "header",
+          "content": "Appearance"
+        },
+        {
+          "type": "color",
+          "id": "badge_color",
+          "label": "Badge color",
+          "default": "#F5F5F5"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge text color",
+          "default": "#767676"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.bestsellers"
+    }
+  ]
+}
+{% endschema %}

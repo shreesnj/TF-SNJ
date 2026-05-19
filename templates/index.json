@@ -76,6 +76,81 @@
         "padding-block-end": 16
       }
     },
+    "bestsellers": {
+      "type": "bestsellers",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/screenshot-2026-04-09-at-12-48-21-1-mobile-31614003.png",
+            "title": "SuperBeets® Heart Chews",
+            "rating": "4.4",
+            "review_count": "(7,143)",
+            "badge_text": "#1 cardiologist recommended",
+            "badge_color": "#767676",
+            "badge_text_color": "#FFFFFF",
+            "description": "Our signature product – supporting healthy blood pressure",
+            "cta_text": "Shop Now"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/screenshot-2026-04-09-at-12-48-21-1-mobile-31614027.png",
+            "title": "SuperBeets® Heart Powder",
+            "rating": "4.2",
+            "review_count": "(3,313)",
+            "badge_text": "1.2M+ sold",
+            "badge_color": "#F5F5F5",
+            "badge_text_color": "#767676",
+            "description": "Daily heart support, scoop by scoop.",
+            "cta_text": "Shop Now"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/screenshot-2026-04-09-at-12-48-21-1-mobile-31614051.png",
+            "title": "Cardiovascular Health Daily",
+            "rating": "4.5",
+            "review_count": "(7,138)",
+            "badge_text": "800K+ sold",
+            "badge_color": "#F5F5F5",
+            "badge_text_color": "#767676",
+            "description": "Daily support for healthy blood flow.",
+            "cta_text": "Shop Now"
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/screenshot-2026-04-09-at-12-48-21-1-mobile-31614075.png",
+            "title": "Sport Pre-Workout Powder",
+            "rating": "4.5",
+            "review_count": "(475)",
+            "badge_text": "Athlete's choice",
+            "badge_color": "#F5F5F5",
+            "badge_text_color": "#767676",
+            "description": "Clean energy for your next session.",
+            "cta_text": "Shop Now"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
+      ],
+      "settings": {
+        "heading": "<p><strong>Bestsellers<\/strong> for<br>cardiovascular support.<\/p>",
+        "button_text": "Shop All",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -611,6 +686,7 @@
   "order": [
     "hero_carousel",
     "ask_me",
+    "bestsellers",
     "hero_jVaWmY",
     "product_list_fa6P9H",
     "social_proof_reviews",
