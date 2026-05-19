@@ -445,7 +445,9 @@
     "routine_impact": "Routine Impact",
     "routine_impact_card": "Milestone card",
     "expert_endorsement": "Expert endorsement",
-    "expert_endorsement_card": "Expert card"
+    "expert_endorsement_card": "Expert card",
+    "science_deep_dive": "Science Deep Dive",
+    "science_deep_dive_card": "Card"
   },
   "options": {
     "above_carousel": "Above carousel",

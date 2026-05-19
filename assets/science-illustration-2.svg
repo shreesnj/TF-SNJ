@@ -1,0 +1,29 @@
+<svg width="169" height="169" viewBox="0 0 169 169" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="84.5" cy="84.5" r="84" stroke="white" stroke-width="0.5"/>
+  <circle cx="84.5" cy="84.5" r="62" stroke="white" stroke-width="1"/>
+  <!-- Radiating lines/arrows -->
+  <line x1="84.5" y1="2" x2="84.5" y2="22" stroke="white" stroke-width="1"/>
+  <line x1="84.5" y1="147" x2="84.5" y2="167" stroke="white" stroke-width="1"/>
+  <line x1="2" y1="84.5" x2="22" y2="84.5" stroke="white" stroke-width="1"/>
+  <line x1="147" y1="84.5" x2="167" y2="84.5" stroke="white" stroke-width="1"/>
+  <line x1="26" y1="26" x2="40" y2="40" stroke="white" stroke-width="1"/>
+  <line x1="129" y1="129" x2="143" y2="143" stroke="white" stroke-width="1"/>
+  <line x1="143" y1="26" x2="129" y2="40" stroke="white" stroke-width="1"/>
+  <line x1="26" y1="143" x2="40" y2="129" stroke="white" stroke-width="1"/>
+  <!-- Arrow tips -->
+  <line x1="80" y1="2" x2="84.5" y2="0" stroke="white" stroke-width="1"/>
+  <line x1="89" y1="2" x2="84.5" y2="0" stroke="white" stroke-width="1"/>
+  <line x1="80" y1="167" x2="84.5" y2="169" stroke="white" stroke-width="1"/>
+  <line x1="89" y1="167" x2="84.5" y2="169" stroke="white" stroke-width="1"/>
+  <line x1="2" y1="80" x2="0" y2="84.5" stroke="white" stroke-width="1"/>
+  <line x1="2" y1="89" x2="0" y2="84.5" stroke="white" stroke-width="1"/>
+  <line x1="167" y1="80" x2="169" y2="84.5" stroke="white" stroke-width="1"/>
+  <line x1="167" y1="89" x2="169" y2="84.5" stroke="white" stroke-width="1"/>
+  <!-- Inner dots -->
+  <circle cx="70" cy="70" r="5" fill="white"/>
+  <circle cx="100" cy="75" r="5" fill="white"/>
+  <circle cx="75" cy="100" r="5" fill="white"/>
+  <circle cx="65" cy="90" r="3" fill="white"/>
+  <circle cx="95" cy="95" r="3" fill="white"/>
+  <circle cx="85" cy="65" r="3" fill="white"/>
+</svg>

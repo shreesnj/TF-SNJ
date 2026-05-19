@@ -1,0 +1,445 @@
+{%- liquid
+  assign heading = section.settings.heading
+  assign subtitle = section.settings.subtitle
+  assign button_text = section.settings.button_text
+  assign button_url = section.settings.button_url
+  assign show_dividers = section.settings.show_dividers
+-%}
+
+<div
+  class="science-deep-dive color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="science-deep-dive__wrapper {% if section.settings.section_width == 'page-width' %}page-width{% endif %}">
+    <div class="science-deep-dive__header">
+      {%- if heading != blank -%}
+        <div class="science-deep-dive__heading">
+          {{ heading }}
+        </div>
+      {%- endif -%}
+
+      {%- if subtitle != blank -%}
+        <p class="science-deep-dive__subtitle">{{ subtitle | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if show_dividers -%}
+      <hr class="science-deep-dive__divider">
+    {%- endif -%}
+
+    <div class="science-deep-dive__cards">
+      {%- for block in section.blocks -%}
+        <div class="science-deep-dive__card" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <img
+              class="science-deep-dive__card-bg"
+              src="{{ block.settings.image | image_url: width: 800 }}"
+              alt="{{ block.settings.image.alt | escape }}"
+              width="389"
+              height="480"
+              loading="lazy"
+              srcset="
+                {{ block.settings.image | image_url: width: 320 }} 320w,
+                {{ block.settings.image | image_url: width: 389 }} 389w,
+                {{ block.settings.image | image_url: width: 640 }} 640w,
+                {{ block.settings.image | image_url: width: 778 }} 778w
+              "
+              sizes="(min-width: 750px) 33vw, 320px"
+            >
+          {%- endif -%}
+
+          <div class="science-deep-dive__card-content">
+            {%- if block.settings.illustration != blank -%}
+              <img
+                class="science-deep-dive__card-illustration"
+                src="{{ block.settings.illustration | asset_url }}"
+                alt=""
+                width="169"
+                height="169"
+                loading="lazy"
+              >
+            {%- endif -%}
+
+            {%- if block.settings.card_text != blank -%}
+              <div class="science-deep-dive__card-text">
+                {{ block.settings.card_text }}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if show_dividers -%}
+      <hr class="science-deep-dive__divider">
+    {%- endif -%}
+
+    {%- if button_text != blank -%}
+      <div class="science-deep-dive__button-wrapper">
+        <a
+          class="science-deep-dive__button"
+          {%- if button_url != blank %}
+            href="{{ button_url }}"
+          {%- endif %}
+        >
+          {{ button_text | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.science-deep-dive {
+  padding-block-start: var(--padding-block-start);
+  padding-block-end: var(--padding-block-end);
+}
+
+.science-deep-dive__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.science-deep-dive__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.science-deep-dive__heading {
+  font-family: var(--font-heading--family);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 52px;
+  color: #FFFFFF;
+}
+
+.science-deep-dive__heading p {
+  margin: 0;
+}
+
+.science-deep-dive__heading em {
+  font-family: var(--font-accent--family);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: -1px;
+}
+
+.science-deep-dive__subtitle {
+  font-family: var(--font-heading--family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.science-deep-dive__subtitle strong,
+.science-deep-dive__subtitle b {
+  font-weight: 700;
+}
+
+.science-deep-dive__divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+.science-deep-dive__cards {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.science-deep-dive__card {
+  flex: 1 1 0;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 24px;
+  min-height: 480px;
+}
+
+.science-deep-dive__card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.science-deep-dive__card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.science-deep-dive__card-illustration {
+  width: 161px;
+  height: 161px;
+  object-fit: contain;
+}
+
+.science-deep-dive__card-text {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -1px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.science-deep-dive__card-text p {
+  margin: 0;
+}
+
+.science-deep-dive__card-text strong,
+.science-deep-dive__card-text b {
+  font-weight: 700;
+}
+
+.science-deep-dive__button-wrapper {
+  display: flex;
+  padding: 8px 0;
+}
+
+.science-deep-dive__button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #FFFFFF;
+  border-radius: 28px;
+  padding: 12px 20px;
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+  background: transparent;
+}
+
+.science-deep-dive__button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Mobile styles */
+@media screen and (max-width: 749px) {
+  .science-deep-dive {
+    padding-block-start: 40px !important;
+    padding-block-end: 40px !important;
+  }
+
+  .science-deep-dive__wrapper {
+    gap: 16px;
+    padding-inline: 16px;
+  }
+
+  .science-deep-dive__heading {
+    font-family: var(--font-accent--family);
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 36px;
+    letter-spacing: -1px;
+  }
+
+  .science-deep-dive__heading em {
+    line-height: 36px;
+  }
+
+  .science-deep-dive__subtitle {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .science-deep-dive__cards {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .science-deep-dive__cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .science-deep-dive__card {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+  }
+
+  .science-deep-dive__card-text {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .science-deep-dive__button-wrapper {
+    justify-content: center;
+  }
+
+  .science-deep-dive__button {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.science_deep_dive",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Learn about the <em>Miracle Molecule</em></p>"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Science grounded in the Nobel Prize-winning nitric oxide pathway."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Explore Our Science"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Show dividers",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-3"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "t:names.science_deep_dive_card",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background image"
+        },
+        {
+          "type": "select",
+          "id": "illustration",
+          "label": "Illustration",
+          "options": [
+            { "value": "science-illustration-1.svg", "label": "Molecule simple" },
+            { "value": "science-illustration-2.svg", "label": "Molecule radial" },
+            { "value": "science-illustration-3.svg", "label": "Molecule cluster" }
+          ],
+          "default": "science-illustration-1.svg"
+        },
+        {
+          "type": "richtext",
+          "id": "card_text",
+          "label": "Card text",
+          "default": "<p>Card description text goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.science_deep_dive",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "illustration": "science-illustration-1.svg"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "illustration": "science-illustration-2.svg"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "illustration": "science-illustration-3.svg"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

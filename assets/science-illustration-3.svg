@@ -1,0 +1,26 @@
+<svg width="169" height="169" viewBox="0 0 169 169" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="84.5" cy="84.5" r="84" stroke="white" stroke-width="0.5"/>
+  <!-- Large dots (18px) -->
+  <circle cx="95" cy="60" r="9" fill="white"/>
+  <circle cx="70" cy="90" r="9" fill="white"/>
+  <circle cx="105" cy="95" r="9" fill="white"/>
+  <!-- Medium-large dots (14px) -->
+  <circle cx="60" cy="70" r="7" fill="white"/>
+  <!-- Medium dots (10px) -->
+  <circle cx="80" cy="50" r="5" fill="white"/>
+  <circle cx="55" cy="85" r="5" fill="white"/>
+  <circle cx="100" cy="110" r="5" fill="white"/>
+  <circle cx="115" cy="75" r="5" fill="white"/>
+  <circle cx="85" cy="105" r="5" fill="white"/>
+  <!-- Small dots (9px) -->
+  <circle cx="110" cy="60" r="4.5" fill="white"/>
+  <circle cx="65" cy="110" r="4.5" fill="white"/>
+  <!-- Tiny dots (6px) -->
+  <circle cx="75" cy="65" r="3" fill="white"/>
+  <circle cx="50" cy="100" r="3" fill="white"/>
+  <circle cx="90" cy="80" r="3" fill="white"/>
+  <circle cx="120" cy="90" r="3" fill="white"/>
+  <circle cx="95" cy="120" r="3" fill="white"/>
+  <circle cx="70" cy="55" r="3" fill="white"/>
+  <circle cx="110" cy="105" r="3" fill="white"/>
+</svg>
