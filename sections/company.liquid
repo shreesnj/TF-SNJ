@@ -1,0 +1,245 @@
+{%- liquid
+  assign logo = section.settings.logo
+  assign description = section.settings.description
+  assign image_1 = section.settings.image_1
+  assign image_2 = section.settings.image_2
+  assign image_3 = section.settings.image_3
+-%}
+
+<div
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="company__border">
+    <div class="company__container">
+      <div class="company__logo">
+        {%- if logo != blank -%}
+          {{
+            logo
+            | image_url: width: logo.width
+            | image_tag:
+              widths: '280,560',
+              sizes: '280px',
+              loading: 'lazy',
+              alt: logo.alt
+          }}
+        {%- else -%}
+          <img
+            src="{{ 'logo.svg' | asset_url }}"
+            alt="{{ shop.name | escape }}"
+            width="280"
+            height="48"
+            loading="lazy"
+          >
+        {%- endif -%}
+      </div>
+
+      {%- if description != blank -%}
+        <div class="company__description">
+          {%- liquid
+            assign processed_description = description
+
+            if image_1 != blank
+              capture img1_html
+                echo '<img class="company__inline-image company__inline-image--chew" src="'
+                echo image_1 | image_url: width: 56
+                echo '" alt="'
+                echo image_1.alt | escape
+                echo '" width="28" height="21" loading="lazy">'
+              endcapture
+              assign processed_description = processed_description | replace: '[img1]', img1_html
+            else
+              assign processed_description = processed_description | replace: '[img1]', ''
+            endif
+
+            if image_2 != blank
+              capture img2_html
+                echo '<img class="company__inline-image company__inline-image--capsule" src="'
+                echo image_2 | image_url: width: 88
+                echo '" alt="'
+                echo image_2.alt | escape
+                echo '" width="44" height="15" loading="lazy">'
+              endcapture
+              assign processed_description = processed_description | replace: '[img2]', img2_html
+            else
+              assign processed_description = processed_description | replace: '[img2]', ''
+            endif
+
+            if image_3 != blank
+              capture img3_html
+                echo '<img class="company__inline-image company__inline-image--gummie" src="'
+                echo image_3 | image_url: width: 50
+                echo '" alt="'
+                echo image_3.alt | escape
+                echo '" width="23" height="25" loading="lazy">'
+              endcapture
+              assign processed_description = processed_description | replace: '[img3]', img3_html
+            else
+              assign processed_description = processed_description | replace: '[img3]', ''
+            endif
+          -%}
+
+          {{ processed_description }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.company__border {
+  border: 1px solid var(--color-border);
+}
+
+.company__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  max-width: 780px;
+  margin: 0 auto;
+  padding-inline: 170px;
+}
+
+.company__logo img {
+  display: block;
+  width: 280px;
+  height: auto;
+}
+
+.company__description p {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 40px;
+  letter-spacing: -1px;
+  color: var(--color-foreground);
+  text-align: center;
+  margin: 0;
+}
+
+.company__description strong {
+  font-family: var(--font-heading--family);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.company__inline-image {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 2px;
+}
+
+.company__inline-image--chew {
+  width: 28px;
+  height: 21px;
+}
+
+.company__inline-image--capsule {
+  width: 44px;
+  height: 15px;
+  transform: rotate(1.6deg);
+}
+
+.company__inline-image--gummie {
+  width: 23px;
+  height: 25px;
+}
+
+@media screen and (max-width: 749px) {
+  .company__container {
+    gap: 60px;
+    padding-inline: 0;
+  }
+
+  .company__description p {
+    font-size: 1.5rem;
+    line-height: 32px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.company",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>A cardiovascular health company [img1] focused on the <strong>60,000 miles</strong> of your cardiovascular system [img2] fueling your [img3] <strong>36 trillion cells.</strong></p>",
+      "info": "Use [img1], [img2], [img3] markers where inline images should appear."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Inline Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Inline Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Inline Image 3"
+    },
+    {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-8"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.section_width",
+      "options": [
+        { "value": "page-width", "label": "t:options.page_width" },
+        { "value": "full-width", "label": "t:options.full_width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 72,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.company"
+    }
+  ]
+}
+{% endschema %}

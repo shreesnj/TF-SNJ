@@ -458,7 +458,8 @@
     "documentary": "Documentary",
     "community": "Community",
     "community_card": "Community card",
-    "retailers": "Retailers"
+    "retailers": "Retailers",
+    "company": "Company"
   },
   "options": {
     "above_carousel": "Above carousel",

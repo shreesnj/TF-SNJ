@@ -981,6 +981,18 @@
         "padding-block-start": 80,
         "padding-block-end": 80
       }
+    },
+    "company": {
+      "type": "company",
+      "settings": {
+        "color_scheme": "scheme-8",
+        "section_width": "page-width",
+        "padding-block-start": 72,
+        "padding-block-end": 72,
+        "image_1": "shopify://shop_images/screenshot-2026-04-17-at-22-12-53-1-mobile-31614349.png",
+        "image_2": "shopify://shop_images/screenshot-2026-04-17-at-22-17-40-1-mobile-31614360.png",
+        "image_3": "shopify://shop_images/screenshot-2026-04-17-at-22-30-25-1-mobile-31614364.png"
+      }
     }
   },
   "order": [
@@ -999,6 +1011,7 @@
     "documentary",
     "community",
     "deal",
-    "retailers"
+    "retailers",
+    "company"
   ]
 }
