@@ -9,6 +9,53 @@
  */
  {
   "sections": {
+    "money-back-guarantee": {
+      "type": "marquee",
+      "blocks": {
+        "mbg_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>MONEY BACK GUARANTEE</p>",
+            "width": "fit-content",
+            "max_width": "none",
+            "type_preset": "custom",
+            "font": "'Uniforma', sans-serif",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "mbg_divider": {
+          "type": "_divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 50,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          }
+        }
+      },
+      "block_order": [
+        "mbg_text",
+        "mbg_divider"
+      ],
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-7",
+        "padding-block-start": 16,
+        "padding-block-end": 16,
+        "gap_between_elements": 32
+      }
+    },
     "hero_carousel": {
       "type": "hero-carousel",
       "blocks": {
@@ -685,6 +732,7 @@
   },
   "order": [
     "hero_carousel",
+    "money-back-guarantee",
     "ask_me",
     "bestsellers",
     "hero_jVaWmY",
