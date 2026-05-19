@@ -346,12 +346,76 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "social_proof_reviews": {
+      "type": "social-proof-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "image-review",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31613818.jpg",
+            "quote": "“A product that is heart healthy AND tastes amazing.”",
+            "author": "– Chris D."
+          }
+        },
+        "review_2": {
+          "type": "text-review",
+          "settings": {
+            "rating": "4.5",
+            "quote": "“I actually feel better.”",
+            "body": "I never notice things like supplements and I didn’t expect to with this either....I’ve been sleeping better, breathing better and feeling better overall and it’s only been a month so far.”",
+            "author": "– Matt Z."
+          }
+        },
+        "review_3": {
+          "type": "image-review",
+          "settings": {
+            "image": "shopify://shop_images/card-desktop-31731695.jpg",
+            "quote": "“Humann fits so easily into my routine. I love it.”",
+            "author": "– Leonna M."
+          }
+        },
+        "review_4": {
+          "type": "text-review",
+          "settings": {
+            "rating": "4.5",
+            "quote": "“My doctor is very happy.”",
+            "body": "Ever since I started taking SuperBeets my doctor is very satisfied with my BP readings.”",
+            "author": "– Everett"
+          }
+        },
+        "review_5": {
+          "type": "image-review",
+          "settings": {
+            "image": "shopify://shop_images/card-mobile-31613853.jpg",
+            "quote": "“I like that it feels practical, not complicated.”",
+            "author": "– Kim K."
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5"
+      ],
+      "settings": {
+        "heading": "<p>Join <strong>millions of people<\/strong> prioritizing their cardiovascular health<\/p>",
+        "review_count": "100K+ verified reviews",
+        "header_rating": "4.5",
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     }
   },
   "order": [
     "hero_carousel",
     "ask_me",
     "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "product_list_fa6P9H",
+    "social_proof_reviews"
   ]
 }
