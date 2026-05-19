@@ -16,8 +16,10 @@
       {% if show_as_accordion == true %} menu--accordion menu--{{ block_settings.accordion_icon }}{% endif %}
       {% if dividers_enabled == true %} menu--dividers{% endif %}
     "
-    data-disable-on-desktop="true"
-    open-by-default-on-desktop
+    {% unless block_settings.accordion_on_desktop %}
+      data-disable-on-desktop="true"
+      open-by-default-on-desktop
+    {% endunless %}
     {% if show_as_accordion == false %}
       data-disable-on-mobile="true"
       open-by-default-on-mobile
@@ -134,6 +136,34 @@
   .menu--plus .icon-caret {
     display: none;
   }
+
+  /* Desktop accordion styles — applied when accordion_on_desktop is true
+     (the data-disable-on-desktop attribute is omitted, so accordion-custom stays active) */
+  @media screen and (min-width: 750px) {
+    accordion-custom.menu--accordion:not([data-disable-on-desktop]) .menu__heading--empty {
+      display: flex;
+    }
+
+    accordion-custom.menu--accordion:not([data-disable-on-desktop]) .menu__heading__accordion {
+      display: contents;
+    }
+
+    accordion-custom.menu--accordion:not([data-disable-on-desktop]) .menu__heading__default {
+      display: none;
+    }
+
+    accordion-custom.menu--accordion:not([data-disable-on-desktop]) .details-content {
+      margin-block-start: var(--spacing--size);
+    }
+
+    accordion-custom.menu--accordion:not([data-disable-on-desktop]).menu--dividers .menu__details {
+      border-block-end: var(--style-border-width) solid var(--color-border);
+    }
+
+    accordion-custom.menu--accordion:not([data-disable-on-desktop]).menu--dividers .details-content {
+      padding-block-end: var(--padding-sm);
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -193,6 +223,13 @@
       "type": "checkbox",
       "id": "accordion_dividers",
       "label": "t:settings.dividers",
+      "default": false,
+      "visible_if": "{{ block.settings.show_as_accordion == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "accordion_on_desktop",
+      "label": "t:settings.accordion_on_desktop",
       "default": false,
       "visible_if": "{{ block.settings.show_as_accordion == true }}"
     },

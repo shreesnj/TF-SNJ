@@ -1,180 +1,362 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
- {
+{
   "type": "footer",
   "name": "t:names.footer",
   "sections": {
     "footer": {
       "type": "footer",
       "blocks": {
-        "group_wErUQf": {
+        "left_column": {
           "type": "group",
-          "name": "Join our email list",
           "settings": {
-            "link": "",
-            "open_in_new_tab": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
+            "vertical_alignment": "flex-start",
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 6,
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
             "width": "fill",
-            "custom_width": 100,
             "width_mobile": "fill",
-            "custom_width_mobile": 100,
             "height": "fit",
-            "custom_height": 100,
             "inherit_color_scheme": true,
-            "color_scheme": "",
             "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
             "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
             "border_radius": 0,
-            "placeholder": "",
             "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_pF6rVi": {
-              "type": "text",
-              "name": "Heading",
+            "social_icons": {
+              "type": "social-links",
               "settings": {
-                "text": "<h2>Join our email list</h2>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h3",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
+                "instagram_url": "https://www.instagram.com/humannsupps",
+                "twitter_url": "https://www.x.com/humannsupps",
+                "facebook_url": "https://www.facebook.com/humannsupps"
+              }
             },
-            "text_HafH7P": {
-              "type": "text",
-              "name": "Text",
+            "menu_shop_product": {
+              "type": "menu",
               "settings": {
-                "text": "<p>Get exclusive deals and early access to new products.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "menu": "shop-by-product",
+                "heading": "Shop by Product",
+                "show_as_accordion": true,
+                "accordion_icon": "plus",
+                "accordion_dividers": true,
+                "accordion_on_desktop": true,
+                "menu_spacing": 8,
+                "heading_preset": "h5",
+                "link_preset": "paragraph",
+                "inherit_color_scheme": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
+              }
+            },
+            "menu_shop_benefit": {
+              "type": "menu",
+              "settings": {
+                "menu": "shop-by-benefit",
+                "heading": "Shop by Benefit",
+                "show_as_accordion": true,
+                "accordion_icon": "plus",
+                "accordion_dividers": true,
+                "accordion_on_desktop": true,
+                "menu_spacing": 8,
+                "heading_preset": "h5",
+                "link_preset": "paragraph",
+                "inherit_color_scheme": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "menu_our_science": {
+              "type": "menu",
+              "settings": {
+                "menu": "our-science",
+                "heading": "Our Science",
+                "show_as_accordion": true,
+                "accordion_icon": "plus",
+                "accordion_dividers": true,
+                "accordion_on_desktop": true,
+                "menu_spacing": 8,
+                "heading_preset": "h5",
+                "link_preset": "paragraph",
+                "inherit_color_scheme": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "menu_support": {
+              "type": "menu",
+              "settings": {
+                "menu": "support",
+                "heading": "Support",
+                "show_as_accordion": true,
+                "accordion_icon": "plus",
+                "accordion_dividers": true,
+                "accordion_on_desktop": true,
+                "menu_spacing": 8,
+                "heading_preset": "h5",
+                "link_preset": "paragraph",
+                "inherit_color_scheme": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "newsletter_group": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 10,
+                "width": "fill",
+                "width_mobile": "fill",
+                "height": "fit",
+                "inherit_color_scheme": true,
+                "background_media": "none",
+                "border": "none",
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "padding-block-start": 20,
+                "padding-block-end": 20,
+                "padding-inline-start": 8,
+                "padding-inline-end": 8
               },
-              "blocks": {}
+              "blocks": {
+                "newsletter_heading_group": {
+                  "type": "group",
+                  "settings": {
+                    "content_direction": "column",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "flex-start",
+                    "gap": 4,
+                    "width": "fill",
+                    "width_mobile": "fill",
+                    "height": "fit",
+                    "inherit_color_scheme": true,
+                    "background_media": "none",
+                    "border": "none",
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "newsletter_title": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Newsletter</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "h5",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      }
+                    },
+                    "newsletter_subtitle": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Humann science in your inbox</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      }
+                    }
+                  },
+                  "block_order": ["newsletter_title", "newsletter_subtitle"]
+                },
+                "newsletter_form": {
+                  "type": "email-signup",
+                  "settings": {
+                    "width": "fill",
+                    "inherit_color_scheme": true,
+                    "border_style": "all",
+                    "border_width": 1,
+                    "border_radius": 0,
+                    "display_type": "arrow",
+                    "style_class": "button-unstyled",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  }
+                }
+              },
+              "block_order": ["newsletter_heading_group", "newsletter_form"]
             }
           },
           "block_order": [
-            "text_pF6rVi",
-            "text_HafH7P"
+            "social_icons",
+            "menu_shop_product",
+            "menu_shop_benefit",
+            "menu_our_science",
+            "menu_support",
+            "newsletter_group"
           ]
         },
-        "email-signup_HafH7P": {
-          "type": "email-signup",
-          "name": "Email Signup",
+        "right_column": {
+          "type": "group",
           "settings": {
-            "width": "fill"
-          }
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "width_mobile": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "background_media": "none",
+            "border": "none",
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "contact_info": {
+              "type": "text",
+              "settings": {
+                "text": "<p>1250 S Capital of Texas Highway<br/>Austin, TX 78746</p><p>(855) 636-4040</p><p>info@humann.com</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 8,
+                "padding-inline-end": 8
+              }
+            },
+            "disclaimer_wrapper": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 10,
+                "width": "fill",
+                "width_mobile": "fill",
+                "height": "fit",
+                "inherit_color_scheme": true,
+                "background_media": "none",
+                "border": "none",
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "padding-block-start": 16,
+                "padding-block-end": 16,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "disclaimer_box": {
+                  "type": "group",
+                  "settings": {
+                    "content_direction": "column",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 10,
+                    "width": "fill",
+                    "width_mobile": "fill",
+                    "height": "fit",
+                    "inherit_color_scheme": true,
+                    "background_media": "none",
+                    "border": "solid",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 4,
+                    "toggle_overlay": false,
+                    "padding-block-start": 16,
+                    "padding-block-end": 16,
+                    "padding-inline-start": 16,
+                    "padding-inline-end": 16
+                  },
+                  "blocks": {
+                    "disclaimer_content": {
+                      "type": "custom-liquid",
+                      "settings": {
+                        "custom_liquid": "<div class=\"footer-disclaimer\"><ul class=\"footer-disclaimer__list\"><li class=\"footer-disclaimer__item\"><span class=\"footer-disclaimer__marker\">*</span><span class=\"footer-disclaimer__text\">According to IQVIA ProVoice Survey 2024</span></li><li class=\"footer-disclaimer__item\"><span class=\"footer-disclaimer__marker\">1</span><span class=\"footer-disclaimer__text\">Based on the combination of all sales data for medical practitioners and professionals for humann products sold through pro.humann.com and medical sales distributor partners from 12/1/23 to 11/30/2024.</span></li><li class=\"footer-disclaimer__item\"><span class=\"footer-disclaimer__marker\">2</span><span class=\"footer-disclaimer__text\">In a 16-week, double-blind, placebo-controlled study involving 119 healthy men and women, Heart Chews' polyphenol compound, taken as part of a healthy lifestyle was clinically shown nearly 2-times as effective at promoting normal blood pressure already in the normal range as a healthy lifestyle alone.</span></li><li class=\"footer-disclaimer__item\"><span class=\"footer-disclaimer__marker\">3</span><span class=\"footer-disclaimer__text\">Based on Amazon 5-star ratings and reviews as of May 2024 for SuperBeets Heart Chews, Powder, Collagen, Energy Plus, Circulation Gummies, Energy Gummies, Beet Root Capsules, Sport, Memory + Focus.</span></li></ul></div>"
+                      }
+                    }
+                  },
+                  "block_order": ["disclaimer_content"]
+                }
+              },
+              "block_order": ["disclaimer_box"]
+            },
+            "footer_bottom": {
+              "type": "custom-liquid",
+              "settings": {
+                "custom_liquid": "<div class=\"footer-bottom-bar\"><div class=\"footer-bottom-bar__links\"><span>&copy; 2025 Humann</span><a href=\"/policies/terms-of-service\">Terms &amp; Conditions</a><a href=\"/policies/privacy-policy\">Privacy Policy</a></div><div class=\"footer-bottom-bar__badges\"><img src=\"{{ 'made-in-usa-1.svg' | asset_url }}\" alt=\"Made in USA with globally sourced ingredients\" class=\"footer-bottom-bar__badge-img\" width=\"105\" height=\"64\" loading=\"lazy\"><img src=\"https://cdn.shopify.com/s/files/1/0944/9580/1707/files/screenshot-2026-04-18-at-16-11-10-1-mobile-31614462.png?v=1778861006\" alt=\"NSF Certified Sport\" class=\"footer-bottom-bar__badge-img footer-bottom-bar__badge-img--rounded\" width=\"42\" height=\"64\" loading=\"lazy\"></div></div>"
+              }
+            }
+          },
+          "block_order": [
+            "contact_info",
+            "disclaimer_wrapper",
+            "footer_bottom"
+          ]
         }
       },
       "block_order": [
-        "group_wErUQf",
-        "email-signup_HafH7P"
+        "left_column",
+        "right_column"
       ],
-      "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
-        "gap": 20,
-        "color_scheme": "scheme-5",
-        "padding-block-start": 36,
-        "padding-block-end": 36
+        "gap": 48,
+        "color_scheme": "scheme-9",
+        "padding-block-start": 40,
+        "padding-block-end": 60
       }
     },
     "utilities": {
       "type": "footer-utilities",
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "section_width": "page-width",
-        "gap": 24,
-        "divider_thickness": 1,
-        "color_scheme": "scheme-5",
-        "padding-block-start": 12,
-        "padding-block-end": 16
-      },
-      "blocks": {
-        "copyright": {
-          "type": "footer-copyright",
-          "settings": {
-            "show_powered_by": true,
-            "font_size": "0.75rem",
-            "case": "none"
-          }
-        },
-        "policy_list": {
-          "type": "footer-policy-list",
-          "settings": {
-            "font_size": "0.75rem",
-            "case": "none"
-          }
-        },
-        "social_icons": {
-          "type": "social-links",
-          "settings": {
-            "facebook_url": "https://www.facebook.com",
-            "instagram_url": "https://www.instagram.com",
-            "tiktok_url": "https://www.tiktok.com",
-            "twitter_url": "https://www.twitter.com",
-            "youtube_url": "https://www.youtube.com"
-          }
-        }
-      },
-      "block_order": [
-        "copyright",
-        "policy_list",
-        "social_icons"
-      ]
+        "gap": 0,
+        "divider_thickness": 0,
+        "color_scheme": "scheme-9",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
