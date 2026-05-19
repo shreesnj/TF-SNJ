@@ -777,6 +777,19 @@
         "padding-block-end": 96
       }
     },
+    "documentary": {
+      "type": "documentary",
+      "settings": {
+        "image": "shopify://shop_images/screenshot-2026-04-21-at-14-05-42-1-mobile-31614205.png",
+        "mobile_image": "shopify://shop_images/screenshot-2026-04-21-at-14-05-42-1-mobile-31614205.png",
+        "heading": "<p>Founded in partnership with<br><strong>The University of Texas<\/strong><\/p>",
+        "button_label": "WATCH DOCUMENTARY",
+        "color_scheme": "scheme-6",
+        "section_width": "full-width",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
     "science_deep_dive": {
       "type": "science-deep-dive",
       "blocks": {
@@ -834,6 +847,7 @@
     "science_deep_dive",
     "routine_impact",
     "expert_endorsement",
-    "ingredients"
+    "ingredients",
+    "documentary"
   ]
 }

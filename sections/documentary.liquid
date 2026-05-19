@@ -1,0 +1,313 @@
+{%- liquid
+  assign heading = section.settings.heading
+  assign button_label = section.settings.button_label
+  assign button_url = section.settings.button_url
+  assign image = section.settings.image
+  assign mobile_image = section.settings.mobile_image
+  assign video = section.settings.video
+-%}
+
+<div
+  class="documentary color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  {%- if video != blank -%}
+    <div class="documentary__bg">
+      {{ video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'documentary__video' }}
+    </div>
+  {%- elsif image != blank -%}
+    <div class="documentary__bg">
+      {%- if mobile_image != blank -%}
+        <picture>
+          <source
+            media="(max-width: 989px)"
+            srcset="{{ mobile_image | image_url: width: mobile_image.width }}"
+          >
+          {{ image | image_url: width: image.width | image_tag:
+            sizes: '100vw',
+            widths: '375,550,750,1100,1500,1780,2000',
+            loading: 'lazy',
+            alt: image.alt | default: ''
+          }}
+        </picture>
+      {%- else -%}
+        {{ image | image_url: width: image.width | image_tag:
+          sizes: '100vw',
+          widths: '375,550,750,1100,1500,1780,2000',
+          loading: 'lazy',
+          alt: image.alt | default: ''
+        }}
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div class="documentary__overlay"></div>
+
+  <div class="documentary__wrapper">
+    <img
+      class="documentary__logo"
+      src="{{ 'humann-ut-logo-white-1.svg' | asset_url }}"
+      alt="HumanN and University of Texas"
+      width="264"
+      height="47"
+      loading="lazy"
+    />
+
+    {%- if heading != blank -%}
+      <div class="documentary__heading">
+        {{ heading }}
+      </div>
+    {%- endif -%}
+
+    {%- if button_label != blank -%}
+      <a
+        class="documentary__button"
+        {% if button_url != blank %}href="{{ button_url }}"{% endif %}
+      >
+        {{- button_label | escape -}}
+      </a>
+    {%- endif -%}
+  </div>
+
+  {%- if video != blank -%}
+    <button class="documentary__play-pause" aria-label="Pause video" type="button">
+      <img src="{{ 'icon-button.svg' | asset_url }}" alt="" width="32" height="32" />
+    </button>
+  {%- endif -%}
+</div>
+
+{%- if video != blank -%}
+  <script>
+    (function () {
+      var sectionId = '{{ section.id }}';
+      var sectionEl = document.getElementById('shopify-section-' + sectionId);
+      if (!sectionEl) return;
+
+      var video = sectionEl.querySelector('.documentary__video');
+      var btn = sectionEl.querySelector('.documentary__play-pause');
+      if (!video || !btn) return;
+
+      var isPlaying = true;
+
+      btn.addEventListener('click', function () {
+        if (isPlaying) {
+          video.pause();
+          btn.setAttribute('aria-label', 'Play video');
+        } else {
+          video.play();
+          btn.setAttribute('aria-label', 'Pause video');
+        }
+        isPlaying = !isPlaying;
+      });
+    })();
+  </script>
+{%- endif -%}
+
+{% stylesheet %}
+.documentary {
+  position: relative;
+  overflow: hidden;
+  padding-block-start: var(--padding-block-start);
+  padding-block-end: var(--padding-block-end);
+}
+
+.documentary__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.documentary__bg img,
+.documentary__bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.documentary__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.documentary__wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 72px;
+  min-height: 620px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-inline: 160px;
+}
+
+.documentary__logo {
+  display: block;
+}
+
+.documentary__heading {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 52px;
+  letter-spacing: -1px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.documentary__heading p {
+  margin: 0;
+}
+
+.documentary__heading strong,
+.documentary__heading b {
+  font-weight: 700;
+}
+
+.documentary__button {
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 28px;
+  border: 2px solid #FFFFFF;
+  padding: 12px 20px;
+  background: transparent;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.documentary__play-pause {
+  position: absolute;
+  top: 40px;
+  right: 24px;
+  z-index: 3;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+.documentary__play-pause img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 989px) {
+  .documentary__wrapper {
+    display: none;
+  }
+
+  .documentary__play-pause {
+    display: none;
+  }
+
+  .documentary {
+    min-height: 700px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.documentary",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Founded in partnership with<br><strong>The University of Texas</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "WATCH DOCUMENTARY"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-6"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.documentary"
+    }
+  ]
+}
+{% endschema %}
