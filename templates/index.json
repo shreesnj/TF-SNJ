@@ -610,7 +610,7 @@
         "heading": "<p>There's nothing more <strong>fundamental to longevity</strong> than Cardiovascular Health.</p>",
         "subtitle": "Powered through nitric oxide and  better blood flow.",
         "subtitle_bold": "The 3 Keys to Cardiovascular Health",
-        "show_divider": true,
+        "show_divider": false,
         "color_scheme": "",
         "section_width": "page-width",
         "padding-block-start": 80,
