@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "t:names.footer",
@@ -32,9 +41,9 @@
             "social_icons": {
               "type": "social-links",
               "settings": {
+                "facebook_url": "https://www.facebook.com/humannsupps",
                 "instagram_url": "https://www.instagram.com/humannsupps",
-                "twitter_url": "https://www.x.com/humannsupps",
-                "facebook_url": "https://www.facebook.com/humannsupps"
+                "twitter_url": "https://www.x.com/humannsupps"
               }
             },
             "menu_shop_product": {
@@ -42,14 +51,14 @@
               "settings": {
                 "menu": "shop-by-product",
                 "heading": "Shop by Product",
+                "menu_spacing": 8,
                 "show_as_accordion": true,
                 "accordion_icon": "plus",
                 "accordion_dividers": true,
                 "accordion_on_desktop": true,
-                "menu_spacing": 8,
+                "inherit_color_scheme": true,
                 "heading_preset": "h5",
                 "link_preset": "paragraph",
-                "inherit_color_scheme": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -61,14 +70,14 @@
               "settings": {
                 "menu": "shop-by-benefit",
                 "heading": "Shop by Benefit",
+                "menu_spacing": 8,
                 "show_as_accordion": true,
                 "accordion_icon": "plus",
                 "accordion_dividers": true,
                 "accordion_on_desktop": true,
-                "menu_spacing": 8,
+                "inherit_color_scheme": true,
                 "heading_preset": "h5",
                 "link_preset": "paragraph",
-                "inherit_color_scheme": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -80,14 +89,14 @@
               "settings": {
                 "menu": "our-science",
                 "heading": "Our Science",
+                "menu_spacing": 8,
                 "show_as_accordion": true,
                 "accordion_icon": "plus",
                 "accordion_dividers": true,
                 "accordion_on_desktop": true,
-                "menu_spacing": 8,
+                "inherit_color_scheme": true,
                 "heading_preset": "h5",
                 "link_preset": "paragraph",
-                "inherit_color_scheme": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -99,14 +108,14 @@
               "settings": {
                 "menu": "support",
                 "heading": "Support",
+                "menu_spacing": 8,
                 "show_as_accordion": true,
                 "accordion_icon": "plus",
                 "accordion_dividers": true,
                 "accordion_on_desktop": true,
-                "menu_spacing": 8,
+                "inherit_color_scheme": true,
                 "heading_preset": "h5",
                 "link_preset": "paragraph",
-                "inherit_color_scheme": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -190,7 +199,10 @@
                       }
                     }
                   },
-                  "block_order": ["newsletter_title", "newsletter_subtitle"]
+                  "block_order": [
+                    "newsletter_title",
+                    "newsletter_subtitle"
+                  ]
                 },
                 "newsletter_form": {
                   "type": "email-signup",
@@ -200,8 +212,8 @@
                     "border_style": "all",
                     "border_width": 1,
                     "border_radius": 0,
-                    "display_type": "arrow",
                     "style_class": "button-unstyled",
+                    "display_type": "arrow",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -209,7 +221,10 @@
                   }
                 }
               },
-              "block_order": ["newsletter_heading_group", "newsletter_form"]
+              "block_order": [
+                "newsletter_heading_group",
+                "newsletter_form"
+              ]
             }
           },
           "block_order": [
@@ -314,10 +329,14 @@
                       }
                     }
                   },
-                  "block_order": ["disclaimer_content"]
+                  "block_order": [
+                    "disclaimer_content"
+                  ]
                 }
               },
-              "block_order": ["disclaimer_box"]
+              "block_order": [
+                "disclaimer_box"
+              ]
             },
             "footer_bottom": {
               "type": "custom-liquid",
@@ -347,8 +366,6 @@
     },
     "utilities": {
       "type": "footer-utilities",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "section_width": "page-width",
         "gap": 0,

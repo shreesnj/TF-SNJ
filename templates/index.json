@@ -7,55 +7,8 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
-    "money-back-guarantee": {
-      "type": "marquee",
-      "blocks": {
-        "mbg_text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>MONEY BACK GUARANTEE</p>",
-            "width": "fit-content",
-            "max_width": "none",
-            "type_preset": "custom",
-            "font": "'Uniforma', sans-serif",
-            "font_size": "0.875rem",
-            "line_height": "tight",
-            "letter_spacing": "loose",
-            "case": "uppercase",
-            "wrap": "nowrap",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          }
-        },
-        "mbg_divider": {
-          "type": "_divider",
-          "settings": {
-            "thickness": 1,
-            "corner_radius": "square",
-            "width_percent": 50,
-            "padding-block-start": 0,
-            "padding-block-end": 0
-          }
-        }
-      },
-      "block_order": [
-        "mbg_text",
-        "mbg_divider"
-      ],
-      "settings": {
-        "movement_direction": "normal",
-        "color_scheme": "scheme-7",
-        "padding-block-start": 16,
-        "padding-block-end": 16,
-        "gap_between_elements": 32
-      }
-    },
     "hero_carousel": {
       "type": "hero-carousel",
       "blocks": {
@@ -64,17 +17,19 @@
           "settings": {
             "layout": "two_column",
             "background_type": "gradient",
-            "gradient_color_start": "#F0F0F0",
-            "gradient_color_end": "#E3E3E3",
+            "gradient_color_start": "#f0f0f0",
+            "gradient_color_end": "#e3e3e3",
             "gradient_angle": 170,
+            "blur_background": false,
             "slide_corner_radius": 16,
             "title": "SuperBeets®, The Cardiovascular  Health Original",
-            "title_color": "#BC0F0F",
+            "title_color": "#bc0f0f",
             "subtitle": "Combines category-leading trust with clinically researched cardiovascular support.",
-            "subtitle_color": "#BC0F0F",
+            "subtitle_color": "#bc0f0f",
             "button_label": "SHOP SUPERBEETS",
+            "button_url": "",
             "button_bg_color": "#000000",
-            "button_text_color": "#FFFFFF",
+            "button_text_color": "#ffffff",
             "content_image": "shopify://shop_images/hero-mobile-header-31301281.png",
             "footer_image": "shopify://shop_images/screenshot-2026-04-07-at-11-03-03-1-mobile-header-31301290.png"
           }
@@ -84,16 +39,20 @@
           "settings": {
             "layout": "overlay",
             "background_type": "image",
+            "gradient_color_start": "#f0f0f0",
+            "gradient_color_end": "#e3e3e3",
+            "gradient_angle": 170,
             "background_image": "shopify://shop_images/hero-mobile-header-I31301882211761.png",
             "blur_background": true,
             "slide_corner_radius": 12,
             "title": "Cardiovascular health is everything health.",
             "title_color": "#414141",
             "subtitle": "Inspired by Nobel-Prize winning science, born out of research from The University of Texas.",
-            "subtitle_color": "#FFFFFF",
+            "subtitle_color": "#ffffff",
             "button_label": "EXPLORE THE SCIENCE",
+            "button_url": "",
             "button_bg_color": "#000000",
-            "button_text_color": "#FFFFFF"
+            "button_text_color": "#ffffff"
           }
         }
       },
@@ -108,12 +67,65 @@
         "padding-block-end": 8
       }
     },
+    "money-back-guarantee": {
+      "type": "marquee",
+      "blocks": {
+        "mbg_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>MONEY BACK GUARANTEE</p>",
+            "width": "fit-content",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "'Uniforma', sans-serif",
+            "font_size": "0.875rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "mbg_divider": {
+          "type": "_divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 50,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mbg_text",
+        "mbg_divider"
+      ],
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-7",
+        "padding-block-start": 16,
+        "padding-block-end": 16,
+        "gap_between_elements": 32
+      }
+    },
     "ask_me": {
       "type": "ask-me",
       "settings": {
         "heading": "Ask me anything about cardiovascular health",
         "placeholder_text": "How does blood flow support energy?",
         "button_text": "GO",
+        "search_url": "",
         "expert_image": "shopify://shop_images/ellipse-228-mobile-header-31301311.jpg",
         "expert_title": "Approved by experts",
         "expert_description": "Get answers backed by research from Humann's Chief Cardiologist.",
@@ -134,10 +146,11 @@
             "rating": "4.4",
             "review_count": "(7,143)",
             "badge_text": "#1 cardiologist recommended",
-            "badge_color": "#767676",
-            "badge_text_color": "#FFFFFF",
             "description": "Our signature product – supporting healthy blood pressure",
-            "cta_text": "Shop Now"
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "badge_color": "#767676",
+            "badge_text_color": "#ffffff"
           }
         },
         "card_2": {
@@ -148,10 +161,11 @@
             "rating": "4.2",
             "review_count": "(3,313)",
             "badge_text": "1.2M+ sold",
-            "badge_color": "#F5F5F5",
-            "badge_text_color": "#767676",
             "description": "Daily heart support, scoop by scoop.",
-            "cta_text": "Shop Now"
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "badge_color": "#f5f5f5",
+            "badge_text_color": "#767676"
           }
         },
         "card_3": {
@@ -162,10 +176,11 @@
             "rating": "4.5",
             "review_count": "(7,138)",
             "badge_text": "800K+ sold",
-            "badge_color": "#F5F5F5",
-            "badge_text_color": "#767676",
             "description": "Daily support for healthy blood flow.",
-            "cta_text": "Shop Now"
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "badge_color": "#f5f5f5",
+            "badge_text_color": "#767676"
           }
         },
         "card_4": {
@@ -176,10 +191,11 @@
             "rating": "4.5",
             "review_count": "(475)",
             "badge_text": "Athlete's choice",
-            "badge_color": "#F5F5F5",
-            "badge_text_color": "#767676",
             "description": "Clean energy for your next session.",
-            "cta_text": "Shop Now"
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "badge_color": "#f5f5f5",
+            "badge_text_color": "#767676"
           }
         }
       },
@@ -190,8 +206,9 @@
         "card_4"
       ],
       "settings": {
-        "heading": "<p><strong>Bestsellers<\/strong> for<br>cardiovascular support.<\/p>",
+        "heading": "<p><strong>Bestsellers</strong> for<br>cardiovascular support.</p>",
         "button_text": "Shop All",
+        "button_url": "",
         "color_scheme": "scheme-1",
         "section_width": "page-width",
         "padding-block-start": 80,
@@ -247,10 +264,15 @@
         "text_YLPk4p",
         "button_H9gpTf"
       ],
+      "disabled": true,
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
         "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
@@ -448,6 +470,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "t:names.featured_collection",
       "settings": {
         "collection": "all",
@@ -523,7 +546,7 @@
         "review_5"
       ],
       "settings": {
-        "heading": "<p>Join <strong>millions of people<\/strong> prioritizing their cardiovascular health<\/p>",
+        "heading": "<p>Join <strong>millions of people</strong> prioritizing their cardiovascular health</p>",
         "review_count": "100K+ verified reviews",
         "header_rating": "4.5",
         "color_scheme": "scheme-2",
@@ -534,15 +557,6 @@
     },
     "brand_science": {
       "type": "brand-science",
-      "settings": {
-        "heading": "<p>There's nothing more <strong>fundamental to longevity<\/strong> than Cardiovascular Health.<\/p>",
-        "subtitle": "Powered through nitric oxide and  better blood flow.",
-        "subtitle_bold": "The 3 Keys to Cardiovascular Health",
-        "show_divider": true,
-        "section_width": "page-width",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      },
       "blocks": {
         "card_1": {
           "type": "card",
@@ -554,7 +568,8 @@
             "stat_description": "more effective blood pressure support when compared to diet and exercise alone.¹",
             "icon": "64px.svg",
             "button_text": "Shop Blood Pressure",
-            "card_color": "#8C0132"
+            "button_url": "",
+            "card_color": "#8c0132"
           }
         },
         "card_2": {
@@ -567,7 +582,8 @@
             "stat_description": "of customers report improved energy levels, after completing their first 90-day routine.",
             "icon": "icon.svg",
             "button_text": "Shop Metabolic",
-            "card_color": "#E6305E"
+            "button_url": "",
+            "card_color": "#e6305e"
           }
         },
         "card_3": {
@@ -580,7 +596,8 @@
             "stat_description": "reduction in LDL (bad cholesterol) and a 11% reduction in total cholesterol.",
             "icon": "icon-3.svg",
             "button_text": "Shop Cholesterol",
-            "card_color": "#D54427"
+            "button_url": "",
+            "card_color": "#d54427"
           }
         }
       },
@@ -588,7 +605,62 @@
         "card_1",
         "card_2",
         "card_3"
-      ]
+      ],
+      "settings": {
+        "heading": "<p>There's nothing more <strong>fundamental to longevity</strong> than Cardiovascular Health.</p>",
+        "subtitle": "Powered through nitric oxide and  better blood flow.",
+        "subtitle_bold": "The 3 Keys to Cardiovascular Health",
+        "show_divider": true,
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "science_deep_dive": {
+      "type": "science-deep-dive",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1-mobile-31613935.jpg",
+            "illustration": "science-illustration-1.svg",
+            "card_text": "<p>By age 40, Humans naturally produce <strong>50% less Nitric Oxide</strong> than they did at age 20.</p>"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/2-mobile-31613943.jpg",
+            "illustration": "science-illustration-2.svg",
+            "card_text": "<p>Nitric Oxide helps circulate more oxygen and nutrients to your <strong>36 trillion cells.</strong></p>"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/3-mobile-31613972.jpg",
+            "illustration": "science-illustration-3.svg",
+            "card_text": "<p>More oxygen and nutrients means <strong>more healthy energy support.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ],
+      "settings": {
+        "heading": "<p>Learn about the <em>Miracle Molecule</em></p>",
+        "subtitle": "<p><strong>Did you know</strong> that Nitric Oxide is one of the most important molecules produced in your body?</p>",
+        "button_text": "Explore Our Science",
+        "button_url": "",
+        "show_dividers": true,
+        "color_scheme": "scheme-3",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     },
     "routine_impact": {
       "type": "routine-impact",
@@ -631,7 +703,7 @@
         "mobile_image": "shopify://shop_images/stat-mobile-31614101.jpg",
         "heading": "<p>One routine.<br><strong>Big impact.</strong></p>",
         "stat_text": "35K daily active users",
-        "dot_color": "#BC0F0F",
+        "dot_color": "#bc0f0f",
         "color_scheme": "scheme-5",
         "section_width": "page-width",
         "padding-block-start": 80,
@@ -645,7 +717,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/ellipse-228-mobile-header-31301311.jpg",
-            "quote": "\u201cNo other brand would dare call a cardiologist. Humann did.\u201d",
+            "video_url": "",
+            "quote": "“No other brand would dare call a cardiologist. Humann did.”",
             "name": "Dr. Christopher Davis, MD",
             "credentials": "Chief Cardiologist at Humann, Triple Board-Certified Interventional Cardiologist, Fellow of the American College of Cardiology"
           }
@@ -654,7 +727,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/594d441eba314bf68cd58dc1b777afca-hd-1080p-2-5mbps-23552982-13-desktop-31731836.jpg",
-            "quote": "\u201cHumann makes the science feel accessible and actionable.\u201d",
+            "video_url": "",
+            "quote": "“Humann makes the science feel accessible and actionable.”",
             "name": "Yousef Elyaman, MD",
             "credentials": "Medical Director at Humann, Board Certified in Internal Medicine and Integrative Medicine from the American Board of Physician Specialties"
           }
@@ -663,7 +737,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/img-desktop-31731847.png",
-            "quote": "\u201cIt\u2019s refreshing to see a company take science seriously.\u201d",
+            "video_url": "",
+            "quote": "“It’s refreshing to see a company take science seriously.”",
             "name": "Penny Kris-Etherton, PhD",
             "credentials": "Science Advisory Board Member at Humann, past chair of the American Heart Association Council on Lifestyle and Cardiometabolic"
           }
@@ -675,9 +750,9 @@
         "card_3"
       ],
       "settings": {
-        "heading": "<p>Backed by <strong>6000+<\/strong> cardiologists and scientists<\/p>",
+        "heading": "<p>Backed by <strong>6000+</strong> cardiologists and scientists</p>",
         "subtitle": "Founded on Nobel Prize-Winning Science. Validated in Real Life.",
-        "name_color": "#BC0F0F",
+        "name_color": "#bc0f0f",
         "show_dividers": true,
         "color_scheme": "scheme-2",
         "section_width": "page-width",
@@ -764,10 +839,12 @@
         "card_9"
       ],
       "settings": {
-        "heading": "<p>Made from clinically researched and <strong>sustainably sourced ingredients.<\/strong><\/p>",
-        "subtitle": "<p>Made in the USA with carefully sourced ingredients from around the world. From source to formula, each ingredient is chosen with purpose.<\/p>",
+        "heading": "<p>Made from clinically researched and <strong>sustainably sourced ingredients.</strong></p>",
+        "subtitle": "<p>Made in the USA with carefully sourced ingredients from around the world. From source to formula, each ingredient is chosen with purpose.</p>",
         "link_text": "About ingredients.",
+        "link_url": "",
         "button_text": "SHOW ALL INGREDIENTS",
+        "button_url": "",
         "usa_bar_label": "MADE IN USA",
         "usa_bar_subtitle": "with globally sourced ingredients",
         "mobile_max_cards": 6,
@@ -782,56 +859,13 @@
       "settings": {
         "image": "shopify://shop_images/screenshot-2026-04-21-at-14-05-42-1-mobile-31614205.png",
         "mobile_image": "shopify://shop_images/screenshot-2026-04-21-at-14-05-42-1-mobile-31614205.png",
-        "heading": "<p>Founded in partnership with<br><strong>The University of Texas<\/strong><\/p>",
+        "heading": "<p>Founded in partnership with<br><strong>The University of Texas</strong></p>",
         "button_label": "WATCH DOCUMENTARY",
+        "button_url": "",
         "color_scheme": "scheme-6",
         "section_width": "full-width",
         "padding-block-start": 40,
         "padding-block-end": 40
-      }
-    },
-    "science_deep_dive": {
-      "type": "science-deep-dive",
-      "blocks": {
-        "card_1": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/1-mobile-31613935.jpg",
-            "illustration": "science-illustration-1.svg",
-            "card_text": "<p>By age 40, Humans naturally produce <strong>50% less Nitric Oxide</strong> than they did at age 20.</p>"
-          }
-        },
-        "card_2": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/2-mobile-31613943.jpg",
-            "illustration": "science-illustration-2.svg",
-            "card_text": "<p>Nitric Oxide helps circulate more oxygen and nutrients to your <strong>36 trillion cells.</strong></p>"
-          }
-        },
-        "card_3": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/3-mobile-31613972.jpg",
-            "illustration": "science-illustration-3.svg",
-            "card_text": "<p>More oxygen and nutrients means <strong>more healthy energy support.</strong></p>"
-          }
-        }
-      },
-      "block_order": [
-        "card_1",
-        "card_2",
-        "card_3"
-      ],
-      "settings": {
-        "heading": "<p>Learn about the <em>Miracle Molecule</em></p>",
-        "subtitle": "<p><strong>Did you know<\/strong> that Nitric Oxide is one of the most important molecules produced in your body?<\/p>",
-        "button_text": "Explore Our Science",
-        "show_dividers": true,
-        "color_scheme": "scheme-3",
-        "section_width": "page-width",
-        "padding-block-start": 80,
-        "padding-block-end": 80
       }
     },
     "community": {
@@ -841,28 +875,32 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/card-mobile-31614241.png",
-            "username": "@velmacan"
+            "username": "@velmacan",
+            "video_url": ""
           }
         },
         "card_2": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/card-mobile-31614234.png",
-            "username": "@reillytris"
+            "username": "@reillytris",
+            "video_url": ""
           }
         },
         "card_3": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/card-mobile-31614227.png",
-            "username": "@_cmfree"
+            "username": "@_cmfree",
+            "video_url": ""
           }
         },
         "card_4": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/card-mobile-31614234.png",
-            "username": "@tha_one08"
+            "username": "@tha_one08",
+            "video_url": ""
           }
         }
       },
@@ -873,7 +911,7 @@
         "card_4"
       ],
       "settings": {
-        "heading": "<p>The <strong>Humann community<\/strong>, in motion.<\/p>",
+        "heading": "<p>The <strong>Humann community</strong>, in motion.</p>",
         "subtitle": "More than a product. A community of people focused on feeling better.",
         "show_divider": true,
         "stat_number": "6.5K",
@@ -895,8 +933,9 @@
         "original_price": "$239.00",
         "sale_price": "$159.00",
         "button_text": "Get the Deal",
+        "button_url": "",
         "disclaimer_text": "*Terms & Conditions apply **Limited offer",
-        "container_background": "#BC0F0F",
+        "container_background": "#bc0f0f",
         "color_scheme": "scheme-1",
         "section_width": "page-width",
         "padding-block-start": 80,
@@ -976,6 +1015,7 @@
       "settings": {
         "heading": "<p>Trusted by leading retailers and available in more than 30,000 retail locations.</p>",
         "button_text": "Find Retailer",
+        "button_url": "",
         "color_scheme": "scheme-1",
         "section_width": "full-width",
         "padding-block-start": 80,
@@ -985,13 +1025,14 @@
     "company": {
       "type": "company",
       "settings": {
+        "description": "<p>A cardiovascular health company [img1] focused on the <strong>60,000 miles</strong> of your cardiovascular system [img2] fueling your [img3] <strong>36 trillion cells.</strong></p>",
+        "image_1": "shopify://shop_images/screenshot-2026-04-17-at-22-12-53-1-mobile-31614349.png",
+        "image_2": "shopify://shop_images/screenshot-2026-04-17-at-22-17-40-1-mobile-31614360.png",
+        "image_3": "shopify://shop_images/screenshot-2026-04-17-at-22-30-25-1-mobile-31614364.png",
         "color_scheme": "scheme-8",
         "section_width": "page-width",
         "padding-block-start": 72,
-        "padding-block-end": 72,
-        "image_1": "shopify://shop_images/screenshot-2026-04-17-at-22-12-53-1-mobile-31614349.png",
-        "image_2": "shopify://shop_images/screenshot-2026-04-17-at-22-17-40-1-mobile-31614360.png",
-        "image_3": "shopify://shop_images/screenshot-2026-04-17-at-22-30-25-1-mobile-31614364.png"
+        "padding-block-end": 72
       }
     }
   },
