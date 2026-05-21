@@ -1104,6 +1104,85 @@
     font-family: var(--menu-localization-font);
     font-size: var(--menu-localization-font-size);
   }
+
+  /* ================================
+   * Figma design overrides
+   * Targeted spacing, typography, and color overrides
+   * to match the Figma header design spec.
+   * ================================ */
+
+  /* Desktop overrides (min-width: 750px) */
+  @media screen and (min-width: 750px) {
+    /* Header block padding: 16px top/bottom (Figma pad:16/24/16/24) */
+    .header {
+      --header-padding: var(--padding-md);
+    }
+
+    /* Header inline padding: 24px left/right (Figma pad:16/24/16/24) */
+    .header__columns {
+      padding-inline: 24px;
+    }
+
+    /* Logo-to-menu gap: 36px (Figma gap:36px) */
+    .header__column--left {
+      gap: 36px;
+    }
+
+    /* Right column gap: 20px (Figma gap:20px) */
+    .header__column--right {
+      gap: 20px;
+    }
+
+    /* Actions button gap: 20px (Figma gap:20px, overrides var(--gap-xl)) */
+    .header-actions--text {
+      gap: 20px;
+    }
+
+    /* Action text typography: Uniforma 400 14px ls:0.75px uppercase (Figma spec).
+     * This intentionally overrides the --header-actions-font-family variable
+     * because no Shopify font slot maps to the Uniforma typeface. If a merchant
+     * changes actions_font in the theme editor, this override will persist. */
+    #header-component .header-actions__text-style {
+      font-family: 'Uniforma', sans-serif;
+      letter-spacing: 0.75px;
+    }
+
+    /* Menu item gap: 28px effective spacing (Figma gap:28px).
+     * Uses 14px padding-inline on each link-title to create 28px between items.
+     * Scoped to desktop top-level menu only — not drawer or submenu. */
+    .menu-list:not(.menu-list--mobile) > .menu-list__list-item > .menu-list__link > .menu-list__link-title {
+      padding-inline: 14px;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  /* Mobile overrides (max-width: 749px) */
+  @media screen and (max-width: 749px) {
+    /* Mobile header padding: 16px block, 20px inline (Figma pad:16/20/16/20) */
+    .header__columns {
+      padding-block: 16px;
+      padding-inline: 20px;
+    }
+
+    /* Also override the drawer-mode duplicate rule */
+    #header-component[data-menu-style='drawer'] .header__columns {
+      padding-block: 16px;
+      padding-inline: 20px;
+    }
+
+    /* Mobile icon gap: 16px (Figma gap:16px) */
+    header-actions {
+      gap: 16px;
+    }
+
+    /* Mobile icon color: #767676 (Figma fill:#767676) */
+    .header-actions__action svg,
+    .header-actions__action .svg-wrapper svg,
+    .header__icon svg,
+    .header__icon--menu svg {
+      color: #767676;
+    }
+  }
 {% endstylesheet %}
 
 {% unless request.design_mode %}
