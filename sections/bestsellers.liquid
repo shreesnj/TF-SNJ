@@ -28,7 +28,11 @@
             <div class="bestsellers__card-image-wrapper">
               {%- liquid
                 assign img = block.settings.image
-                assign sizes_val = '(min-width: 990px) 340px, 280px'
+                if forloop.first
+                  assign sizes_val = '(min-width: 990px) 374px, 280px'
+                else
+                  assign sizes_val = '(min-width: 990px) 340px, 280px'
+                endif
               -%}
               {{
                 img
@@ -52,7 +56,11 @@
               <div class="bestsellers__card-reviews">
                 <span class="bestsellers__card-rating-number">{{ block.settings.rating | escape }}</span>
                 <span class="bestsellers__card-stars">
-                  {%- render 'star-rating-icons', rating: rating_value, color: '#BC0F0F', size: 20, half_variant: 'left' -%}
+                  {%- if forloop.first -%}
+                    {%- render 'star-rating-icons', rating: rating_value, color: '#BC0F0F', size: 22, half_variant: 'left' -%}
+                  {%- else -%}
+                    {%- render 'star-rating-icons', rating: rating_value, color: '#BC0F0F', size: 20, half_variant: 'left' -%}
+                  {%- endif -%}
                 </span>
                 {%- if block.settings.review_count != blank -%}
                   <span class="bestsellers__card-review-count">{{ block.settings.review_count | escape }}</span>
@@ -152,10 +160,12 @@
   display: flex;
   flex-direction: row;
   gap: 16px;
+  margin-inline-end: calc(-1 * max(0px, (100vw - 1200px) / 2));
+  overflow: hidden;
 }
 
 .bestsellers__card {
-  flex: 1;
+  flex: 0 0 340px;
   min-width: 0;
   background-color: #F5F5F5;
   border-radius: 16px;
@@ -165,6 +175,7 @@
 }
 
 .bestsellers__card:first-child {
+  flex: 0 0 374px;
   border-radius: 18px;
 }
 
@@ -181,6 +192,10 @@
   object-fit: cover;
 }
 
+.bestsellers__card:first-child .bestsellers__card-image {
+  aspect-ratio: 374 / 273;
+}
+
 .bestsellers__card-content {
   display: flex;
   flex-direction: column;
@@ -188,6 +203,11 @@
   padding: 20px;
   flex: 1;
   justify-content: flex-end;
+}
+
+.bestsellers__card:first-child .bestsellers__card-content {
+  padding: 22px;
+  gap: 8.8px;
 }
 
 .bestsellers__card-title {
@@ -199,11 +219,21 @@
   margin: 0;
 }
 
+.bestsellers__card:first-child .bestsellers__card-title {
+  font-size: 22px;
+  line-height: 26px;
+}
+
 .bestsellers__card-meta {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding-block: 8px;
+}
+
+.bestsellers__card:first-child .bestsellers__card-meta {
+  gap: 8.8px;
+  padding-block: 8.8px;
 }
 
 .bestsellers__card-reviews {
@@ -214,6 +244,11 @@
   padding-inline-end: 4px;
 }
 
+.bestsellers__card:first-child .bestsellers__card-reviews {
+  gap: 2.2px;
+  padding-inline-end: 4.4px;
+}
+
 .bestsellers__card-rating-number {
   font-family: var(--font-body--family);
   font-weight: 500;
@@ -222,6 +257,12 @@
   letter-spacing: -0.5px;
   color: #BC0F0F;
   margin-inline-end: 2px;
+}
+
+.bestsellers__card:first-child .bestsellers__card-rating-number {
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.55px;
 }
 
 .bestsellers__card-stars {
@@ -239,6 +280,12 @@
   margin-inline-start: 2px;
 }
 
+.bestsellers__card:first-child .bestsellers__card-review-count {
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.55px;
+}
+
 .bestsellers__card-badge {
   display: inline-flex;
   align-self: flex-start;
@@ -254,6 +301,12 @@
   line-height: 20px;
 }
 
+.bestsellers__card:first-child .bestsellers__card-badge {
+  font-size: 18px;
+  line-height: 22px;
+  padding: 4.4px 13.2px;
+}
+
 .bestsellers__card-description {
   font-family: var(--font-accent--family);
   font-weight: 400;
@@ -264,19 +317,35 @@
   margin: 0;
 }
 
+.bestsellers__card:first-child .bestsellers__card-description {
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.55px;
+}
+
 .bestsellers__card-cta-wrapper {
   padding-block: 8px;
 }
 
+.bestsellers__card:first-child .bestsellers__card-cta-wrapper {
+  padding-block: 8.8px;
+}
+
 .bestsellers__card-cta {
-  font-family: 'Uniforma', sans-serif;
-  font-weight: 400;
+  font-family: var(--font-body--family);
+  font-weight: 500;
   font-size: 14px;
   line-height: 16px;
-  letter-spacing: 0.75px;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   text-decoration: underline;
   color: #414141;
+}
+
+.bestsellers__card:first-child .bestsellers__card-cta {
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.55px;
 }
 
 .bestsellers__btn {
@@ -320,7 +389,9 @@
   }
 
   .bestsellers__carousel {
+    margin-inline-end: 0;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -339,49 +410,77 @@
   }
 
   .bestsellers__card:first-child {
+    flex: 0 0 280px;
     border-radius: 16px;
   }
 
-  .bestsellers__card-image {
+  .bestsellers__card-image,
+  .bestsellers__card:first-child .bestsellers__card-image {
     aspect-ratio: 280 / 188;
   }
 
-  .bestsellers__card-content {
+  .bestsellers__card-content,
+  .bestsellers__card:first-child .bestsellers__card-content {
     padding: 16px;
+    gap: 8px;
   }
 
-  .bestsellers__card-title {
+  .bestsellers__card-title,
+  .bestsellers__card:first-child .bestsellers__card-title {
     font-size: 18px;
     line-height: 20px;
   }
 
-  .bestsellers__card-rating-number {
-    font-size: 16px;
-    line-height: 20px;
+  .bestsellers__card-meta,
+  .bestsellers__card:first-child .bestsellers__card-meta {
+    gap: 8px;
+    padding-block: 8px;
   }
 
-  .bestsellers__card-review-count {
-    font-size: 16px;
-    line-height: 20px;
+  .bestsellers__card-reviews,
+  .bestsellers__card:first-child .bestsellers__card-reviews {
+    gap: 2px;
+    padding-inline-end: 4px;
   }
 
-  .bestsellers__card-badge {
+  .bestsellers__card-rating-number,
+  .bestsellers__card:first-child .bestsellers__card-rating-number {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .bestsellers__card-review-count,
+  .bestsellers__card:first-child .bestsellers__card-review-count {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .bestsellers__card-badge,
+  .bestsellers__card:first-child .bestsellers__card-badge {
     font-size: 14px;
     line-height: 18px;
+    padding: 4px 12px;
   }
 
-  .bestsellers__card-description {
+  .bestsellers__card-description,
+  .bestsellers__card:first-child .bestsellers__card-description {
     font-size: 16px;
     line-height: 20px;
+    letter-spacing: -0.5px;
     color: #414141;
   }
 
-  .bestsellers__card-cta {
-    font-family: var(--font-body--family);
-    font-weight: 500;
+  .bestsellers__card-cta-wrapper,
+  .bestsellers__card:first-child .bestsellers__card-cta-wrapper {
+    padding-block: 8px;
+  }
+
+  .bestsellers__card-cta,
+  .bestsellers__card:first-child .bestsellers__card-cta {
     font-size: 14px;
     line-height: 18px;
-    text-transform: none;
     letter-spacing: 0;
   }
 
