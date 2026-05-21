@@ -94,6 +94,13 @@
     border-radius: 0;
   }
 
+  .footer-content .email-signup__input {
+    padding: 8px 4px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+  }
+
   .footer-disclaimer {
     padding: 16px 0;
   }
@@ -185,6 +192,30 @@
     .footer-bottom-bar__links {
       font-size: 12px;
       line-height: 14px;
+    }
+
+    .footer-content .h5 {
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    .footer-content .paragraph {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .footer-content .email-signup__input {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .footer-content.spacing-style {
+      padding-block-start: 16px;
+      padding-block-end: 16px;
+    }
+
+    .section:has(> .footer-content) {
+      --page-margin: 12px;
     }
   }
 {% endstylesheet %}
