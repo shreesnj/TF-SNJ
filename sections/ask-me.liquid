@@ -91,7 +91,7 @@
 .ask-me__container {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 8px;
   border-radius: 16px;
   overflow: hidden;
   background-color: #BC0F0F;
@@ -135,7 +135,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex: 1;
   min-width: 0;
 }
@@ -165,7 +165,7 @@
 }
 
 .ask-me__field-button {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
@@ -261,6 +261,12 @@
   margin: 0;
 }
 
+@media screen and (max-width: 749px) {
+  .ask-me {
+    padding-block-start: 16px;
+  }
+}
+
 @media screen and (min-width: 750px) {
   .ask-me__wrapper {
     padding-inline: 16px;
@@ -291,6 +297,11 @@
 
   .ask-me__field-content {
     padding: 0 8px;
+    gap: 12px;
+  }
+
+  .ask-me__field-button {
+    display: flex;
   }
 
   .ask-me__field-icon {
