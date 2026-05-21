@@ -1,0 +1,1024 @@
+{%- liquid
+  assign label = section.settings.label
+  assign heading = section.settings.heading
+  assign doctor_image = section.settings.doctor_image
+  assign doctor_text = section.settings.doctor_text
+  assign hero_image = section.settings.hero_image
+  assign hero_image_mobile = section.settings.hero_image_mobile
+  assign total_label = section.settings.total_label
+  assign total_original_price = section.settings.total_original_price
+  assign total_sale_price = section.settings.total_sale_price
+  assign benefit_1 = section.settings.benefit_1
+  assign benefit_2 = section.settings.benefit_2
+  assign benefit_3 = section.settings.benefit_3
+  assign button_text = section.settings.button_text
+  assign button_url = section.settings.button_url
+  assign hsa_image = section.settings.hsa_image
+  assign hsa_text = section.settings.hsa_text
+  assign hsa_link_text = section.settings.hsa_link_text
+  assign hsa_link_url = section.settings.hsa_link_url
+-%}
+
+<div
+  class="routine-bundle color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="routine-bundle__container {% if section.settings.section_width == 'page-width' %}page-width{% endif %}">
+    <div class="routine-bundle__left">
+      {%- if label != blank -%}
+        <span class="routine-bundle__label">{{ label | escape }}</span>
+      {%- endif -%}
+
+      {%- if heading != blank -%}
+        <div class="routine-bundle__heading">
+          {{ heading }}
+        </div>
+      {%- endif -%}
+
+      <div class="routine-bundle__doctor">
+        <div class="routine-bundle__doctor-avatar">
+          {%- if doctor_image != blank -%}
+            <img
+              class="routine-bundle__doctor-img"
+              src="{{ doctor_image | image_url: width: 96 }}"
+              alt="{{ doctor_image.alt | default: '' | escape }}"
+              width="48"
+              height="48"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <span class="routine-bundle__doctor-badge">
+            <img
+              src="{{ 'check-solid-2.svg' | asset_url }}"
+              alt=""
+              width="8"
+              height="8"
+              loading="lazy"
+            >
+          </span>
+        </div>
+        {%- if doctor_text != blank -%}
+          <div class="routine-bundle__doctor-text">
+            {{ doctor_text | escape }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if hero_image != blank -%}
+        <div class="routine-bundle__hero">
+          {%- if hero_image_mobile != blank -%}
+            <picture>
+              <source
+                media="(max-width: 989px)"
+                srcset="{{ hero_image_mobile | image_url: width: hero_image_mobile.width }}"
+              >
+              {{ hero_image | image_url: width: hero_image.width | image_tag:
+                sizes: '(min-width: 990px) 588px, calc(100vw - 24px)',
+                widths: '375,550,750,1100,1500',
+                loading: 'lazy',
+                class: 'routine-bundle__hero-img',
+                alt: hero_image.alt | default: ''
+              }}
+            </picture>
+          {%- else -%}
+            {{ hero_image | image_url: width: hero_image.width | image_tag:
+              sizes: '(min-width: 990px) 588px, calc(100vw - 24px)',
+              widths: '375,550,750,1100,1500',
+              loading: 'lazy',
+              class: 'routine-bundle__hero-img',
+              alt: hero_image.alt | default: ''
+            }}
+          {%- endif -%}
+
+          <div class="routine-bundle__pills">
+            {%- for block in section.blocks -%}
+              {%- if block.settings.pill_text != blank -%}
+                <span
+                  class="routine-bundle__pill"
+                  style="background-color: {{ block.settings.pill_color }};"
+                >
+                  {{ block.settings.pill_text | escape }}
+                </span>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="routine-bundle__right">
+      {%- if section.blocks.size > 0 -%}
+        <div class="routine-bundle__contents">
+          {%- for block in section.blocks -%}
+            <div class="routine-bundle__item" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                <div class="routine-bundle__item-img">
+                  <img
+                    src="{{ block.settings.image | image_url: width: 180 }}"
+                    alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
+                    width="90"
+                    height="80"
+                    loading="lazy"
+                  >
+                </div>
+              {%- endif -%}
+              <div class="routine-bundle__item-content">
+                <div class="routine-bundle__item-title">
+                  {%- if block.settings.show_dot -%}
+                    <span class="routine-bundle__item-dot" style="background-color: {{ block.settings.dot_color }};"></span>
+                  {%- endif -%}
+                  {%- if block.settings.title != blank -%}
+                    <span class="routine-bundle__item-name">{{ block.settings.title | escape }}</span>
+                  {%- endif -%}
+                </div>
+                {%- if block.settings.is_free_sample -%}
+                  <div class="routine-bundle__item-price">
+                    {%- if block.settings.original_price != blank -%}
+                      <span class="routine-bundle__item-price-original">{{ block.settings.original_price | escape }}</span>
+                    {%- endif -%}
+                    {%- if block.settings.sale_price != blank -%}
+                      <span class="routine-bundle__item-price-sale">{{ block.settings.sale_price | escape }}</span>
+                    {%- endif -%}
+                  </div>
+                {%- elsif block.settings.description != blank -%}
+                  <div class="routine-bundle__item-desc">{{ block.settings.description | escape }}</div>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+
+          <div class="routine-bundle__total">
+            <div class="routine-bundle__total-set">
+              {%- if total_label != blank -%}
+                <span class="routine-bundle__total-label">{{ total_label | escape }}</span>
+              {%- endif -%}
+              <span class="routine-bundle__total-prices">
+                {%- if total_original_price != blank -%}
+                  <span class="routine-bundle__total-original">{{ total_original_price | escape }}</span>
+                {%- endif -%}
+                {%- if total_sale_price != blank -%}
+                  <span class="routine-bundle__total-sale">{{ total_sale_price | escape }}</span>
+                {%- endif -%}
+              </span>
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="routine-bundle__footer">
+        {%- if benefit_1 != blank or benefit_2 != blank or benefit_3 != blank -%}
+          <div class="routine-bundle__benefits">
+            {%- if benefit_1 != blank -%}
+              <span class="routine-bundle__benefit">{{ benefit_1 | escape }}</span>
+            {%- endif -%}
+            {%- if benefit_2 != blank -%}
+              <span class="routine-bundle__benefit">{{ benefit_2 | escape }}</span>
+            {%- endif -%}
+            {%- if benefit_3 != blank -%}
+              <span class="routine-bundle__benefit">{{ benefit_3 | escape }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if button_text != blank -%}
+          <a
+            class="routine-bundle__button"
+            {% if button_url != blank %}href="{{ button_url }}"{% endif %}
+          >
+            {{ button_text | escape }}
+          </a>
+        {%- endif -%}
+
+        {%- if hsa_image != blank or hsa_text != blank or hsa_link_text != blank -%}
+          <div class="routine-bundle__claim">
+            <div class="routine-bundle__hsa">
+              {%- if hsa_image != blank -%}
+                <img
+                  class="routine-bundle__hsa-logo"
+                  src="{{ hsa_image | image_url: width: 138 }}"
+                  alt="Truemed"
+                  width="69"
+                  height="12"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              {%- if hsa_text != blank -%}
+                <span class="routine-bundle__hsa-text">{{ hsa_text | escape }}</span>
+              {%- endif -%}
+              {%- if hsa_link_text != blank -%}
+                <a
+                  class="routine-bundle__hsa-link"
+                  {% if hsa_link_url != blank %}href="{{ hsa_link_url }}"{% endif %}
+                >
+                  {{ hsa_link_text | escape }}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.routine-bundle {
+  padding-block-start: var(--padding-block-start);
+  padding-block-end: var(--padding-block-end);
+}
+
+.routine-bundle__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 12px;
+}
+
+.routine-bundle__left {
+  display: contents;
+}
+
+.routine-bundle__right {
+  display: contents;
+}
+
+.routine-bundle__label {
+  display: none;
+}
+
+.routine-bundle__heading {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -1px;
+  color: #767676;
+  order: 1;
+}
+
+.routine-bundle__heading p {
+  margin: 0;
+}
+
+.routine-bundle__heading strong,
+.routine-bundle__heading b {
+  font-weight: 700;
+}
+
+.routine-bundle__hero {
+  position: relative;
+  order: 2;
+  padding: 32px 0;
+}
+
+.routine-bundle__hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+.routine-bundle__pills {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.routine-bundle__pill {
+  position: absolute;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-family: var(--font-body--family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.routine-bundle__pill:nth-child(1) {
+  top: 18%;
+  right: 0;
+}
+
+.routine-bundle__pill:nth-child(2) {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.routine-bundle__pill:nth-child(3) {
+  bottom: 18%;
+  right: 5%;
+}
+
+.routine-bundle__contents {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  order: 3;
+}
+
+.routine-bundle__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  justify-content: space-between;
+  padding: 4px 0 8px 0;
+  border-bottom: 1px solid #D9D9DB;
+}
+
+.routine-bundle__item-img {
+  width: 90px;
+  min-width: 90px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.routine-bundle__item-img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.routine-bundle__item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px;
+}
+
+.routine-bundle__item-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.routine-bundle__item-dot {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.routine-bundle__item-name {
+  font-family: var(--font-body--family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #414141;
+}
+
+.routine-bundle__item-desc {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  color: #414141;
+}
+
+.routine-bundle__item-price {
+  font-family: var(--font-accent--family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  color: #414141;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.routine-bundle__item-price-original {
+  text-decoration: line-through;
+}
+
+.routine-bundle__total {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid #D9D9DB;
+}
+
+.routine-bundle__total-set {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.routine-bundle__total-label {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #A0A0A0;
+}
+
+.routine-bundle__total-prices {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.routine-bundle__total-original {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: line-through;
+  color: #A0A0A0;
+}
+
+.routine-bundle__total-sale {
+  font-family: var(--font-body--family);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #414141;
+}
+
+.routine-bundle__doctor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  background: #F5F5F5;
+  border-radius: 8px;
+  padding: 12px;
+  order: 4;
+}
+
+.routine-bundle__doctor-avatar {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+}
+
+.routine-bundle__doctor-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.routine-bundle__doctor-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #414141;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.routine-bundle__doctor-badge img {
+  width: 8px;
+  height: 8px;
+  display: block;
+}
+
+.routine-bundle__doctor-text {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #767676;
+}
+
+.routine-bundle__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  order: 5;
+}
+
+.routine-bundle__benefits {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.routine-bundle__benefit {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #414141;
+  flex: 1;
+}
+
+.routine-bundle__benefit + .routine-bundle__benefit {
+  border-left: 1px solid #D9D9DB;
+}
+
+.routine-bundle__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #BC0F0F;
+  border-radius: 28px;
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.routine-bundle__claim {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.routine-bundle__hsa {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.routine-bundle__hsa-logo {
+  width: 69px;
+  height: 12px;
+  object-fit: contain;
+  display: block;
+}
+
+.routine-bundle__hsa-text {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #767676;
+}
+
+.routine-bundle__hsa-link {
+  font-family: var(--font-body--family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #767676;
+  text-decoration: underline;
+}
+
+/* Desktop styles */
+@media screen and (min-width: 990px) {
+  .routine-bundle__container {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+    padding-inline: 120px;
+  }
+
+  .routine-bundle__left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .routine-bundle__right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .routine-bundle__label {
+    display: block;
+    font-family: 'Uniforma', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #767676;
+  }
+
+  .routine-bundle__heading {
+    font-size: 48px;
+    line-height: 52px;
+    order: unset;
+  }
+
+  .routine-bundle__hero {
+    order: unset;
+    padding: 0;
+  }
+
+  .routine-bundle__pill:nth-child(1) {
+    top: 10%;
+    right: 5%;
+  }
+
+  .routine-bundle__pill:nth-child(2) {
+    top: 48%;
+    left: 2%;
+  }
+
+  .routine-bundle__pill:nth-child(3) {
+    bottom: 12%;
+    right: 0;
+  }
+
+  .routine-bundle__contents {
+    order: unset;
+  }
+
+  .routine-bundle__item {
+    padding: 8px 0;
+  }
+
+  .routine-bundle__item-content {
+    padding: 8px 12px;
+  }
+
+  .routine-bundle__item-name {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .routine-bundle__item-desc {
+    font-size: 18px;
+    line-height: 24px;
+    color: #767676;
+  }
+
+  .routine-bundle__item-price {
+    font-size: 18px;
+    line-height: 24px;
+    color: #414141;
+  }
+
+  .routine-bundle__total-label {
+    color: #767676;
+  }
+
+  .routine-bundle__total-set {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .routine-bundle__total-original {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .routine-bundle__total-sale {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .routine-bundle__doctor {
+    order: unset;
+  }
+
+  .routine-bundle__doctor-text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .routine-bundle__footer {
+    order: unset;
+  }
+
+  .routine-bundle__benefits {
+    gap: 0;
+  }
+
+  .routine-bundle__benefit {
+    font-size: 16px;
+    line-height: 20px;
+    color: #767676;
+  }
+
+  .routine-bundle__button {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .routine-bundle__hsa {
+    gap: 4px;
+  }
+
+  .routine-bundle__hsa-text {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .routine-bundle__hsa-link {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.routine_bundle",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "CARDIOLOGIST RECOMMENDED"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Heart health made easy with <strong>one routine.</strong></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "doctor_image",
+      "label": "Doctor image"
+    },
+    {
+      "type": "text",
+      "id": "doctor_text",
+      "label": "Doctor text",
+      "default": "Our Chief Cardiologist, Dr. Christopher Davis, MD recommends this for daily heart support."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile hero image"
+    },
+    {
+      "type": "text",
+      "id": "total_label",
+      "label": "Total label",
+      "default": "Total Price:"
+    },
+    {
+      "type": "text",
+      "id": "total_original_price",
+      "label": "Original price",
+      "default": "$100.00"
+    },
+    {
+      "type": "text",
+      "id": "total_sale_price",
+      "label": "Sale price",
+      "default": "$80.00"
+    },
+    {
+      "type": "text",
+      "id": "benefit_1",
+      "label": "Benefit 1",
+      "default": "Delivered every 3 months"
+    },
+    {
+      "type": "text",
+      "id": "benefit_2",
+      "label": "Benefit 2",
+      "default": "50% OFF on first month"
+    },
+    {
+      "type": "text",
+      "id": "benefit_3",
+      "label": "Benefit 3",
+      "default": "90-day guarantee"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "SHOP ROUTINE"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "hsa_image",
+      "label": "HSA logo"
+    },
+    {
+      "type": "text",
+      "id": "hsa_text",
+      "label": "HSA text",
+      "default": "HSF-FSA eligible"
+    },
+    {
+      "type": "text",
+      "id": "hsa_link_text",
+      "label": "HSA link text",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "hsa_link_url",
+      "label": "HSA link URL"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:names.routine_bundle_item",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Product name"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Product description text."
+        },
+        {
+          "type": "color",
+          "id": "dot_color",
+          "label": "Dot color",
+          "default": "#8C0132"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_dot",
+          "label": "Show dot",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "pill_text",
+          "label": "Pill text"
+        },
+        {
+          "type": "color",
+          "id": "pill_color",
+          "label": "Pill color",
+          "default": "#8C0132"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_free_sample",
+          "label": "Free sample",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "original_price",
+          "label": "Original price"
+        },
+        {
+          "type": "text",
+          "id": "sale_price",
+          "label": "Sale price"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.routine_bundle",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "SuperBeets® Heart Chews",
+            "description": "Clinically studied beetroot + grape seed for healthy blood pressure support.hews for heart health.",
+            "dot_color": "#8C0132",
+            "show_dot": true,
+            "pill_text": "Blood Pressure",
+            "pill_color": "#8C0132"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Cholesterol Health Daily",
+            "description": "A plant-based blend of aged black garlic and citrus bergamot for cholesterol support.",
+            "dot_color": "#D54427",
+            "show_dot": true,
+            "pill_text": "Cholesterol",
+            "pill_color": "#D54427"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Metabolic Health Daily",
+            "description": "Triple-action support for blood sugar balance, insulin function, and energy metabolism.",
+            "dot_color": "#E6305E",
+            "show_dot": true,
+            "pill_text": "Metabolic",
+            "pill_color": "#E6305E"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "FREE CoQ10 sample",
+            "is_free_sample": true,
+            "show_dot": false,
+            "original_price": "$12.00",
+            "sale_price": "$0.00"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

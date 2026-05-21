@@ -459,7 +459,9 @@
     "community": "Community",
     "community_card": "Community card",
     "retailers": "Retailers",
-    "company": "Company"
+    "company": "Company",
+    "routine_bundle": "Routine bundle",
+    "routine_bundle_item": "Product item"
   },
   "options": {
     "above_carousel": "Above carousel",

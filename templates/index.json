@@ -710,6 +710,86 @@
         "padding-block-end": 80
       }
     },
+    "routine_bundle": {
+      "type": "routine-bundle",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/sbhc-1-front-1-mobile-I338499357513830.png",
+            "title": "SuperBeets® Heart Chews",
+            "description": "Clinically studied beetroot + grape seed for healthy blood pressure support.hews for heart health.",
+            "dot_color": "#8C0132",
+            "show_dot": true,
+            "pill_text": "Blood Pressure",
+            "pill_color": "#8C0132"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/sbhc-1-front-1-mobile-I338499367513830.png",
+            "title": "Cholesterol Health Daily",
+            "description": "A plant-based blend of aged black garlic and citrus bergamot for cholesterol support.",
+            "dot_color": "#D54427",
+            "show_dot": true,
+            "pill_text": "Cholesterol",
+            "pill_color": "#D54427"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/sbhc-1-front-1-mobile-I338499377513830.png",
+            "title": "Metabolic Health Daily",
+            "description": "Triple-action support for blood sugar balance, insulin function, and energy metabolism.",
+            "dot_color": "#E6305E",
+            "show_dot": true,
+            "pill_text": "Metabolic",
+            "pill_color": "#E6305E"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/sbhc-1-front-1-mobile-I338499357513830.png",
+            "title": "FREE CoQ10 sample",
+            "is_free_sample": true,
+            "show_dot": false,
+            "original_price": "$12.00",
+            "sale_price": "$0.00"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "settings": {
+        "label": "CARDIOLOGIST RECOMMENDED",
+        "heading": "<p>Heart health made easy with <strong>one routine.<\/strong><\/p>",
+        "doctor_image": "shopify://shop_images/ellipse-228-mobile-header-31301311.jpg",
+        "doctor_text": "Our Chief Cardiologist, Dr. Christopher Davis, MD recommends this for daily heart support.",
+        "hero_image": "shopify://shop_images/image-883-desktop-31733365.png",
+        "hero_image_mobile": "shopify://shop_images/hero-image-mobile-header-I31301882211753.png",
+        "total_label": "Total Price:",
+        "total_original_price": "$100.00",
+        "total_sale_price": "$80.00",
+        "benefit_1": "Delivered every 3 months",
+        "benefit_2": "50% OFF on first month",
+        "benefit_3": "90-day guarantee",
+        "button_text": "SHOP ROUTINE",
+        "hsa_image": "shopify://shop_images/image-882-mobile-33849955.png",
+        "hsa_text": "HSF-FSA eligible",
+        "hsa_link_text": "Learn more",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
     "expert_endorsement": {
       "type": "expert-endorsement",
       "blocks": {
@@ -1047,6 +1127,7 @@
     "brand_science",
     "science_deep_dive",
     "routine_impact",
+    "routine_bundle",
     "expert_endorsement",
     "ingredients",
     "documentary",
