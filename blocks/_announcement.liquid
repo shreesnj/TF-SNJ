@@ -52,6 +52,11 @@
     gap: 8px;
   }
 
+  .announcement-bar .announcement-bar__text {
+    font-family: 'Stabil Grotesk', sans-serif;
+    letter-spacing: -0.5px;
+  }
+
   .announcement-bar__cta {
     font-family: 'Uniforma', sans-serif;
     font-size: 0.875rem;
@@ -64,14 +69,16 @@
     color: inherit;
     position: relative;
     z-index: 1;
+    padding-block: 9px;
   }
 
-  @media screen and (max-width: 39.99em) {
+  @media screen and (max-width: 749px) {
     .announcement-bar__cta {
       display: none;
     }
 
-    .announcement-bar__text {
+    .announcement-bar .announcement-bar__text {
+      letter-spacing: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
