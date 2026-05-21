@@ -1147,12 +1147,14 @@
       letter-spacing: 0.75px;
     }
 
-    /* Menu item gap: 28px effective spacing (Figma gap:28px).
-     * Uses 14px padding-inline on each link-title to create 28px between items.
-     * Scoped to desktop top-level menu only — not drawer or submenu. */
+    /* Menu item typography: Stabil Grotesk 500 ls:-0.5px (Figma spec).
+     * No Shopify font slot maps to Stabil Grotesk, so font-family and font-weight
+     * are hardcoded. padding-inline: 14px creates 28px gap between items. */
     .menu-list:not(.menu-list--mobile) > .menu-list__list-item > .menu-list__link > .menu-list__link-title {
       padding-inline: 14px;
       letter-spacing: -0.5px;
+      font-family: 'Stabil Grotesk', sans-serif;
+      font-weight: 500;
     }
   }
 
