@@ -1,0 +1,169 @@
+{%- liquid
+  assign text = section.settings.text
+  assign speed = section.settings.speed
+-%}
+
+<div
+  class="money-back-guarantee color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %} --money-back-guarantee-speed: {{ speed }}s;"
+>
+  <div class="money-back-guarantee__track">
+    {%- for i in (1..6) -%}
+      <span class="money-back-guarantee__item">{{ text }}</span>
+      <span class="money-back-guarantee__divider" aria-hidden="true"></span>
+    {%- endfor -%}
+    {%- for i in (1..6) -%}
+      <span class="money-back-guarantee__item">{{ text }}</span>
+      <span class="money-back-guarantee__divider" aria-hidden="true"></span>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.money-back-guarantee {
+  overflow: hidden;
+  padding-block-start: var(--padding-block-start);
+  padding-block-end: var(--padding-block-end);
+}
+
+.money-back-guarantee__track {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  animation: money-back-guarantee-scroll var(--money-back-guarantee-speed, 20s) linear infinite;
+}
+
+@media screen and (min-width: 990px) {
+  .money-back-guarantee__track {
+    gap: 32px;
+  }
+}
+
+.money-back-guarantee__item {
+  font-family: 'Uniforma', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .money-back-guarantee__item {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.money-back-guarantee__divider {
+  display: block;
+  width: 1px;
+  height: 14px;
+  background-color: #F5F5F5;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .money-back-guarantee__divider {
+    height: 16px;
+  }
+}
+
+@keyframes money-back-guarantee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .money-back-guarantee__track {
+    animation-play-state: paused;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.money_back_guarantee",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "MONEY BACK GUARANTEE"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll speed",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "default": 20,
+      "unit": "s"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-7"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.money_back_guarantee"
+    }
+  ]
+}
+{% endschema %}

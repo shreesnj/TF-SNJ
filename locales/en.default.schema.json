@@ -461,7 +461,8 @@
     "retailers": "Retailers",
     "company": "Company",
     "routine_bundle": "Routine bundle",
-    "routine_bundle_item": "Product item"
+    "routine_bundle_item": "Product item",
+    "money_back_guarantee": "Money back guarantee"
   },
   "options": {
     "above_carousel": "Above carousel",

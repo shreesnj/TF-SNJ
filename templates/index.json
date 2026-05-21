@@ -68,55 +68,14 @@
       }
     },
     "money-back-guarantee": {
-      "type": "marquee",
-      "blocks": {
-        "mbg_text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>MONEY BACK GUARANTEE</p>",
-            "width": "fit-content",
-            "max_width": "none",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "'Uniforma', sans-serif",
-            "font_size": "0.875rem",
-            "line_height": "tight",
-            "letter_spacing": "loose",
-            "case": "uppercase",
-            "wrap": "nowrap",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "mbg_divider": {
-          "type": "_divider",
-          "settings": {
-            "thickness": 1,
-            "corner_radius": "square",
-            "width_percent": 50,
-            "padding-block-start": 0,
-            "padding-block-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "mbg_text",
-        "mbg_divider"
-      ],
+      "type": "money-back-guarantee",
       "settings": {
-        "movement_direction": "normal",
+        "text": "MONEY BACK GUARANTEE",
         "color_scheme": "scheme-7",
+        "section_width": "full-width",
         "padding-block-start": 16,
         "padding-block-end": 16,
-        "gap_between_elements": 32
+        "speed": 20
       }
     },
     "ask_me": {
