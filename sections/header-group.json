@@ -100,6 +100,8 @@
         "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 0,
+        "custom_utility_link_text": "Professional",
+        "custom_utility_link_url": "/pages/professional",
         "actions_display_style": "text",
         "actions_font_size": "0.875rem",
         "actions_font": "heading",

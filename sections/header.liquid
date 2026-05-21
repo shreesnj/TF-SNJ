@@ -1113,9 +1113,10 @@
 
   /* Desktop overrides (min-width: 750px) */
   @media screen and (min-width: 750px) {
-    /* Header block padding: 16px top/bottom (Figma pad:16/24/16/24) */
+    /* Header block padding: 16px top/bottom (Figma pad:16/24/16/24).
+     * --padding-lg = 1rem = 16px. Gives total header height: 16+34+16 = 66px. */
     .header {
-      --header-padding: var(--padding-md);
+      --header-padding: var(--padding-lg);
     }
 
     /* Header inline padding: 24px left/right (Figma pad:16/24/16/24) */
