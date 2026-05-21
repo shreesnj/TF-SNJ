@@ -13,7 +13,7 @@
 -%}
 
 <div
-  class="deal color-{{ section.settings.color_scheme }}"
+  class="deal spacing-style color-{{ section.settings.color_scheme }}"
   style="{% render 'spacing-style', settings: section.settings %}"
 >
   <div class="deal__container" style="background-color: {{ container_background }};">
@@ -239,6 +239,10 @@
 }
 
 @media screen and (max-width: 989px) {
+  .deal {
+    padding-inline: 12px;
+  }
+
   .deal__container {
     flex-direction: column;
   }
