@@ -67,17 +67,6 @@
         "padding-block-end": 8
       }
     },
-    "money-back-guarantee": {
-      "type": "money-back-guarantee",
-      "settings": {
-        "text": "MONEY BACK GUARANTEE",
-        "color_scheme": "scheme-7",
-        "section_width": "full-width",
-        "padding-block-start": 16,
-        "padding-block-end": 16,
-        "speed": 20
-      }
-    },
     "ask_me": {
       "type": "ask-me",
       "settings": {
@@ -660,13 +649,24 @@
       "settings": {
         "image": "shopify://shop_images/stat-mobile-31614101.jpg",
         "mobile_image": "shopify://shop_images/stat-mobile-31614101.jpg",
-        "heading": "<p>One routine.<br><strong>Big impact.</strong></p>",
+        "heading": "<p>One routine.<br/><strong>Big impact.</strong></p>",
         "stat_text": "35K daily active users",
         "dot_color": "#bc0f0f",
         "color_scheme": "scheme-5",
         "section_width": "page-width",
         "padding-block-start": 80,
         "padding-block-end": 80
+      }
+    },
+    "money-back-guarantee": {
+      "type": "money-back-guarantee",
+      "settings": {
+        "text": "MONEY BACK GUARANTEE",
+        "speed": 20,
+        "color_scheme": "scheme-7",
+        "section_width": "full-width",
+        "padding-block-start": 16,
+        "padding-block-end": 16
       }
     },
     "routine_bundle": {
@@ -678,10 +678,13 @@
             "image": "shopify://shop_images/sbhc-1-front-1-mobile-I338499357513830.png",
             "title": "SuperBeets® Heart Chews",
             "description": "Clinically studied beetroot + grape seed for healthy blood pressure support.hews for heart health.",
-            "dot_color": "#8C0132",
+            "dot_color": "#8c0132",
             "show_dot": true,
             "pill_text": "Blood Pressure",
-            "pill_color": "#8C0132"
+            "pill_color": "#8c0132",
+            "is_free_sample": false,
+            "original_price": "",
+            "sale_price": ""
           }
         },
         "item_2": {
@@ -690,10 +693,13 @@
             "image": "shopify://shop_images/sbhc-1-front-1-mobile-I338499367513830.png",
             "title": "Cholesterol Health Daily",
             "description": "A plant-based blend of aged black garlic and citrus bergamot for cholesterol support.",
-            "dot_color": "#D54427",
+            "dot_color": "#d54427",
             "show_dot": true,
             "pill_text": "Cholesterol",
-            "pill_color": "#D54427"
+            "pill_color": "#d54427",
+            "is_free_sample": false,
+            "original_price": "",
+            "sale_price": ""
           }
         },
         "item_3": {
@@ -702,10 +708,13 @@
             "image": "shopify://shop_images/sbhc-1-front-1-mobile-I338499377513830.png",
             "title": "Metabolic Health Daily",
             "description": "Triple-action support for blood sugar balance, insulin function, and energy metabolism.",
-            "dot_color": "#E6305E",
+            "dot_color": "#e6305e",
             "show_dot": true,
             "pill_text": "Metabolic",
-            "pill_color": "#E6305E"
+            "pill_color": "#e6305e",
+            "is_free_sample": false,
+            "original_price": "",
+            "sale_price": ""
           }
         },
         "item_4": {
@@ -713,8 +722,12 @@
           "settings": {
             "image": "shopify://shop_images/sbhc-1-front-1-mobile-I338499357513830.png",
             "title": "FREE CoQ10 sample",
-            "is_free_sample": true,
+            "description": "Product description text.",
+            "dot_color": "#8c0132",
             "show_dot": false,
+            "pill_text": "",
+            "pill_color": "#8c0132",
+            "is_free_sample": true,
             "original_price": "$12.00",
             "sale_price": "$0.00"
           }
@@ -728,7 +741,7 @@
       ],
       "settings": {
         "label": "CARDIOLOGIST RECOMMENDED",
-        "heading": "<p>Heart health made easy with <strong>one routine.<\/strong><\/p>",
+        "heading": "<p>Heart health made easy with <strong>one routine.</strong></p>",
         "doctor_image": "shopify://shop_images/ellipse-228-mobile-header-31301311.jpg",
         "doctor_text": "Our Chief Cardiologist, Dr. Christopher Davis, MD recommends this for daily heart support.",
         "hero_image": "shopify://shop_images/image-883-desktop-31733365.png",
@@ -740,9 +753,11 @@
         "benefit_2": "50% OFF on first month",
         "benefit_3": "90-day guarantee",
         "button_text": "SHOP ROUTINE",
+        "button_url": "",
         "hsa_image": "shopify://shop_images/image-882-mobile-33849955.png",
         "hsa_text": "HSF-FSA eligible",
         "hsa_link_text": "Learn more",
+        "hsa_link_url": "",
         "color_scheme": "scheme-1",
         "section_width": "page-width",
         "padding-block-start": 80,
@@ -1077,7 +1092,6 @@
   },
   "order": [
     "hero_carousel",
-    "money-back-guarantee",
     "ask_me",
     "bestsellers",
     "hero_jVaWmY",
@@ -1086,6 +1100,7 @@
     "brand_science",
     "science_deep_dive",
     "routine_impact",
+    "money-back-guarantee",
     "routine_bundle",
     "expert_endorsement",
     "ingredients",
