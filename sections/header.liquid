@@ -1159,6 +1159,16 @@
       font-family: 'Stabil Grotesk', sans-serif;
       font-weight: 500;
     }
+
+    /* Right column order: Figma shows PROFESSIONAL → SEARCH → LOGIN → CART.
+     * Search renders before header-actions in the DOM. Use flex order to push
+     * search after header-actions (PROFESSIONAL → LOGIN → CART → SEARCH). */
+    .header__column--right header-actions {
+      order: 1;
+    }
+    .header__column--right search-button {
+      order: 2;
+    }
   }
 
   /* Mobile overrides (max-width: 749px) */
@@ -1175,6 +1185,15 @@
       padding-inline: 20px;
     }
 
+    /* Mobile search: move to rightA (right side of logo) to match Figma
+     * which shows all icons (search, cart, hamburger) on the right. */
+    .header__columns .search-action {
+      grid-area: rightA;
+    }
+    #header-component[data-menu-style='drawer'] .header__columns .search-action {
+      grid-area: rightA;
+    }
+
     /* Mobile icon gap: 16px (Figma gap:16px) */
     header-actions {
       gap: 16px;
@@ -1185,6 +1204,11 @@
     .header-actions__action .svg-wrapper svg,
     .header__icon svg,
     .header__icon--menu svg {
+      color: #767676;
+    }
+
+    /* Search icon color on mobile: #767676 to match other icons */
+    .search-action svg {
       color: #767676;
     }
   }
