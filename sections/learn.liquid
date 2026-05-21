@@ -166,12 +166,12 @@
 .learn__header {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .learn__heading {
-  font-family: var(--font-accent--family);
-  font-weight: 400;
+  font-family: var(--font-heading--family);
+  font-weight: 700;
   font-size: 48px;
   line-height: 52px;
   color: #767676;
@@ -183,8 +183,8 @@
 
 .learn__heading strong,
 .learn__heading b {
-  font-family: var(--font-body--family);
-  font-weight: 700;
+  font-family: inherit;
+  font-weight: inherit;
   color: #767676;
 }
 
@@ -209,6 +209,10 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+}
+
+.learn__group--watch {
+  padding-inline: 8px;
 }
 
 .learn__group-title-row {
@@ -382,12 +386,14 @@
 }
 
 .learn__article-card-link {
+  display: inline-block;
   font-family: var(--font-body--family);
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
   color: #414141;
-  text-decoration: underline;
+  text-decoration: none;
+  padding: 8px 0;
 }
 
 /* Mobile CTA button - hidden on desktop */
@@ -423,6 +429,14 @@
   .learn__wrapper {
     gap: 16px;
     padding-inline: 12px;
+  }
+
+  .learn__header {
+    gap: 16px;
+  }
+
+  .learn__group {
+    padding-inline: 8px;
   }
 
   .learn__heading {
@@ -483,6 +497,10 @@
     line-height: 20px;
   }
 
+  .learn__article-card-link {
+    line-height: 18px;
+  }
+
   .learn__button-wrap {
     display: flex;
     flex-direction: column;
@@ -521,7 +539,7 @@
       "type": "checkbox",
       "id": "show_divider",
       "label": "Show divider",
-      "default": true
+      "default": false
     },
     {
       "type": "text",
