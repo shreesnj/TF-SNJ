@@ -625,7 +625,7 @@
           "settings": {
             "image": "shopify://shop_images/1-mobile-31613935.jpg",
             "illustration": "science-illustration-1.svg",
-            "card_text": "<p>By age 40, Humans naturally produce <strong>50% less Nitric Oxide</strong> than they did at age 20.</p>"
+            "card_text": "<p>By age 40, Humans naturally produce 50% less Nitric Oxide than they did at age 20.</p>"
           }
         },
         "card_2": {
@@ -633,7 +633,7 @@
           "settings": {
             "image": "shopify://shop_images/2-mobile-31613943.jpg",
             "illustration": "science-illustration-2.svg",
-            "card_text": "<p>Nitric Oxide helps circulate more oxygen and nutrients to your <strong>36 trillion cells.</strong></p>"
+            "card_text": "<p>Nitric Oxide helps circulate more oxygen and nutrients to your 36 trillion cells.</p>"
           }
         },
         "card_3": {
@@ -641,7 +641,7 @@
           "settings": {
             "image": "shopify://shop_images/3-mobile-31613972.jpg",
             "illustration": "science-illustration-3.svg",
-            "card_text": "<p>More oxygen and nutrients means <strong>more healthy energy support.</strong></p>"
+            "card_text": "<p>More oxygen and nutrients means more healthy energy support.</p>"
           }
         }
       },
@@ -652,10 +652,10 @@
       ],
       "settings": {
         "heading": "<p>Learn about the <em>Miracle Molecule</em></p>",
-        "subtitle": "<p><strong>Did you know</strong> that Nitric Oxide is one of the most important molecules produced in your body?</p>",
+        "subtitle": "<p>Science grounded in the Nobel Prize-winning nitric oxide pathway.</p>",
         "button_text": "Explore Our Science",
         "button_url": "",
-        "show_dividers": true,
+        "show_dividers": false,
         "color_scheme": "scheme-3",
         "section_width": "page-width",
         "padding-block-start": 80,

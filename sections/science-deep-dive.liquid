@@ -194,8 +194,10 @@
 }
 
 .science-deep-dive__card-illustration {
-  width: 161px;
-  height: 161px;
+  width: auto;
+  height: auto;
+  max-width: 169px;
+  max-height: 169px;
   object-fit: contain;
 }
 
@@ -325,7 +327,7 @@
       "type": "richtext",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "<p><strong>Did you know</strong> that Nitric Oxide is one of the most important molecules produced in your body?</p>"
+      "default": "<p>Science grounded in the Nobel Prize-winning nitric oxide pathway.</p>"
     },
     {
       "type": "text",
@@ -342,7 +344,7 @@
       "type": "checkbox",
       "id": "show_dividers",
       "label": "Show dividers",
-      "default": true
+      "default": false
     },
     {
       "type": "header",
@@ -427,19 +429,22 @@
         {
           "type": "card",
           "settings": {
-            "illustration": "science-illustration-1.svg"
+            "illustration": "science-illustration-1.svg",
+            "card_text": "<p>By age 40, Humans naturally produce 50% less Nitric Oxide than they did at age 20.</p>"
           }
         },
         {
           "type": "card",
           "settings": {
-            "illustration": "science-illustration-2.svg"
+            "illustration": "science-illustration-2.svg",
+            "card_text": "<p>Nitric Oxide helps circulate more oxygen and nutrients to your 36 trillion cells.</p>"
           }
         },
         {
           "type": "card",
           "settings": {
-            "illustration": "science-illustration-3.svg"
+            "illustration": "science-illustration-3.svg",
+            "card_text": "<p>More oxygen and nutrients means more healthy energy support.</p>"
           }
         }
       ]
