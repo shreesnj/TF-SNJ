@@ -85,7 +85,8 @@
 }
 
 .ask-me__wrapper {
-  padding-inline: 12px;
+  padding-inline-start: var(--padding-inline-start, 16px);
+  padding-inline-end: var(--padding-inline-end, 16px);
 }
 
 .ask-me__container {
@@ -265,13 +266,13 @@
   .ask-me {
     padding-block-start: 16px;
   }
+
+  .ask-me__wrapper {
+    padding-inline: 12px;
+  }
 }
 
 @media screen and (min-width: 750px) {
-  .ask-me__wrapper {
-    padding-inline: 16px;
-  }
-
   .ask-me__container {
     flex-direction: row;
   }
@@ -436,6 +437,26 @@
       "type": "range",
       "id": "padding-block-end",
       "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right padding",
       "min": 0,
       "max": 100,
       "step": 1,
