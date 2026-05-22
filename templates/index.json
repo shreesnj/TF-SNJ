@@ -80,9 +80,7 @@
         "color_scheme": "scheme-3",
         "section_width": "page-width",
         "padding-block-start": 8,
-        "padding-block-end": 16,
-        "padding-inline-start": 16,
-        "padding-inline-end": 16
+        "padding-block-end": 16
       }
     },
     "bestsellers": {
