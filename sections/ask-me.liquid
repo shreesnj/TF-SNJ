@@ -80,13 +80,12 @@
 
 {% stylesheet %}
 .ask-me {
-  padding-block-start: var(--padding-block-start);
+  padding-block-start: 16px;
   padding-block-end: var(--padding-block-end);
 }
 
 .ask-me__wrapper {
-  padding-inline-start: var(--padding-inline-start, 16px);
-  padding-inline-end: var(--padding-inline-end, 16px);
+  padding-inline: 12px;
 }
 
 .ask-me__container {
@@ -263,17 +262,16 @@
   margin: 0;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (min-width: 750px) {
   .ask-me {
-    padding-block-start: 16px;
+    padding-block-start: var(--padding-block-start);
   }
 
   .ask-me__wrapper {
-    padding-inline: 12px;
+    padding-inline-start: var(--padding-inline-start, 16px);
+    padding-inline-end: var(--padding-inline-end, 16px);
   }
-}
 
-@media screen and (min-width: 750px) {
   .ask-me__container {
     flex-direction: row;
   }
