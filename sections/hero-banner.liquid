@@ -1,0 +1,235 @@
+{%- liquid
+  assign image = section.settings.image
+  assign image_mobile = section.settings.image_mobile
+  assign gradient_start = section.settings.gradient_opacity_start | divided_by: 100.0
+  assign gradient_end = section.settings.gradient_opacity_end | divided_by: 100.0
+  assign gradient_start_mobile = section.settings.gradient_opacity_start_mobile | divided_by: 100.0
+  assign gradient_end_mobile = section.settings.gradient_opacity_end_mobile | divided_by: 100.0
+-%}
+
+<div
+  class="hero-banner color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %} --hero-banner-gradient-start: {{ gradient_start }}; --hero-banner-gradient-end: {{ gradient_end }}; --hero-banner-gradient-start-mobile: {{ gradient_start_mobile }}; --hero-banner-gradient-end-mobile: {{ gradient_end_mobile }};"
+>
+  <div class="hero-banner__wrapper {% if section.settings.section_width == 'page-width' %}page-width{% endif %}">
+    <div class="hero-banner__media-wrapper">
+      {%- if image != blank -%}
+        <div class="hero-banner__media hero-banner__media--desktop">
+          {{
+            image
+            | image_url: width: image.width
+            | image_tag:
+              sizes: '100vw',
+              widths: '375,550,750,1100,1500,1780,2000',
+              loading: 'lazy',
+              class: 'hero-banner__image',
+              alt: image.alt | default: ''
+          }}
+        </div>
+      {%- endif -%}
+
+      {%- if image_mobile != blank -%}
+        <div class="hero-banner__media hero-banner__media--mobile">
+          {{
+            image_mobile
+            | image_url: width: image_mobile.width
+            | image_tag:
+              sizes: '100vw',
+              widths: '375,550,750,1100,1500',
+              loading: 'lazy',
+              class: 'hero-banner__image',
+              alt: image_mobile.alt | default: ''
+          }}
+        </div>
+      {%- elsif image != blank -%}
+        <div class="hero-banner__media hero-banner__media--mobile">
+          {{
+            image
+            | image_url: width: image.width
+            | image_tag:
+              sizes: '100vw',
+              widths: '375,550,750,1100,1500',
+              loading: 'lazy',
+              class: 'hero-banner__image',
+              alt: image.alt | default: ''
+          }}
+        </div>
+      {%- endif -%}
+
+      <div class="hero-banner__overlay" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .hero-banner__wrapper {
+    width: 100%;
+  }
+
+  .hero-banner__media-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-banner__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .hero-banner__media--desktop {
+    display: none;
+  }
+
+  .hero-banner__media--mobile {
+    display: block;
+  }
+
+  @media screen and (min-width: 750px) {
+    .hero-banner__media--desktop {
+      display: block;
+    }
+
+    .hero-banner__media--mobile {
+      display: none;
+    }
+  }
+
+  .hero-banner__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, var(--hero-banner-gradient-start-mobile)),
+      rgba(255, 255, 255, var(--hero-banner-gradient-end-mobile))
+    );
+    pointer-events: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .hero-banner__overlay {
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, var(--hero-banner-gradient-start)),
+        rgba(255, 255, 255, var(--hero-banner-gradient-end))
+      );
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.hero_banner",
+  "tag": "section",
+  "class": "hero-banner-wrapper section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image"
+    },
+    {
+      "type": "header",
+      "content": "Gradient overlay"
+    },
+    {
+      "type": "range",
+      "id": "gradient_opacity_start",
+      "label": "Dark opacity (desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "gradient_opacity_end",
+      "label": "Light opacity (desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "gradient_opacity_start_mobile",
+      "label": "Dark opacity (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "gradient_opacity_end_mobile",
+      "label": "Light opacity (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "full-width", "label": "Full width" },
+        { "value": "page-width", "label": "Page width" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.hero_banner"
+    }
+  ]
+}
+{% endschema %}

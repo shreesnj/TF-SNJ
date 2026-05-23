@@ -462,7 +462,8 @@
     "company": "Company",
     "routine_bundle": "Routine bundle",
     "routine_bundle_item": "Product item",
-    "money_back_guarantee": "Money back guarantee"
+    "money_back_guarantee": "Money back guarantee",
+    "hero_banner": "Hero banner"
   },
   "options": {
     "above_carousel": "Above carousel",
